@@ -8,6 +8,7 @@ module.exports = {
     entry: ['babel-polyfill', './app/index.js'],
     output: {
         path: '/',
+        publicPath: '/',
         filename: 'bundle.js'
     },
     plugins: [
@@ -21,7 +22,7 @@ module.exports = {
                 loader: 'babel'
             },
             {
-                test: /\.scss$/,
+                test: /\.(scss|css)$/,
                 loaders: ['style', 'css', 'sass']
             },
             {
@@ -29,7 +30,7 @@ module.exports = {
                 loader: 'file-loader'
             },
             {
-                test: /\.(eot|svg|ttf|woff|woff2)$/,
+                test: /\.(eot|svg|ttf|woff|woff2)(\?.*$|$)/,
                 loader: 'file?name=public/fonts/[name].[ext]'
             }
         ]

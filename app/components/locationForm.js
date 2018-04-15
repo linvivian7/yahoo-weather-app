@@ -1,41 +1,33 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import classNames from 'classnames';
+import {Field, reduxForm} from 'redux-form';
 
-import { LOCATION_FORM_NAME } from '../constants';
+import {LOCATION_FORM_NAME} from '../constants';
+
+import './locationForm.scss';
 
 const LocationForm = (props) => {
-  const {
-      handleSubmit,
-      error,
-      onChange,
-      pristine,
-      reset,
-      submitting
-  } = props;
+    const {handleSubmit, onChange, pristine, submitting} = props;
+    const disabled = pristine || submitting;
 
-  return (
-    <form onSubmit={ handleSubmit }>
-      <div>
-        <label>Location</label>
-        <div>
-          <Field
-              name="location"
-              component="input"
-              type="text"
-              placeholder="Tokyo, Japan"
-              onChange={ onChange }
-          />
-          { error }
-        </div>
-      </div>
-      <div>
-        <button type="submit" disabled={ pristine || submitting }>Submit</button>
-        <button type="button" disabled={ pristine || submitting } onClick={ reset }>Clear Location</button>
-      </div>
-    </form>
+    const submitButtonClasses = classNames(
+        'form__btn',
+        {
+            'form__btn--disabled': disabled
+        }
     );
+
+    return (
+        <form onSubmit={ handleSubmit }>
+        <div className="form__input--with-icon">
+            <Field name="location" component="input" type="text" placeholder="Tokyo, Japan" onChange={ onChange }/>
+            <button type="submit" className={ submitButtonClasses } disabled={ disabled }>
+                <i aria-hidden="true" className="fa fas fa-search"></i>
+            </button>
+        </div>
+    </form>);
 };
 
 export default reduxForm({
-  form: LOCATION_FORM_NAME
+    form: LOCATION_FORM_NAME
 })(LocationForm);
