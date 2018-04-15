@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 import {
-    getGeocodeUrl,
     getTimezoneUrl,
     getWeatherUrl,
     parseQueryResponse
@@ -22,37 +21,15 @@ const _saveTimezone = ({ data }) => ({
 
 const onError = (dispatch) => dispatch(sendLocationError());
 
-function _getTimeZone(latitude, longitude) {
+function _getLocalTime(item) {
     return async (dispatch) => {
         function onSuccess(response) {
             dispatch(_saveTimezone(response));
         }
 
         try {
-            const response = await axios.get(getTimezoneUrl(latitude, longitude));
-
-            return onSuccess(response);
-        } catch (error) {
-            return onError(dispatch);
-        }
-    };
-}
-
-function _getLocalTime(location) {
-    return async (dispatch) => {
-        function onSuccess(response) {
-            const { data: { results }} = response;
-
-            if (results && results[0]) {
-                const { lat, lng } = results[0].geometry.location;
-
-                dispatch(_getTimeZone(lat, lng));
-            }
-        }
-
-        try {
-            const cityAndCountry = `${location.city},${location.country}`;
-            const response = await axios.get(getGeocodeUrl(cityAndCountry));
+            const { lat, long } = item;
+            const response = await axios.get(getTimezoneUrl(lat, long));
 
             return onSuccess(response);
         } catch (error) {
@@ -65,9 +42,10 @@ function _getLocalTime(location) {
 export default function getWeatherData(searchLocation) {
     return async (dispatch) => {
         function onSuccess(response) {
-            const { location } = parseQueryResponse(response.data);
+            debugger;
+            const { item } = parseQueryResponse(response.data);
 
-            dispatch(_getLocalTime(location));
+            dispatch(_getLocalTime(item));
             dispatch(_saveWeather(response));
         }
 

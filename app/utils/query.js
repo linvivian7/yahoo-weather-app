@@ -3,17 +3,13 @@ export const getWeatherUrl = (location) => {
 
     let query  = `select * from weather.forecast
                   where woeid in (select woeid from geo.places(1)
-                  where text='${location}') and u='c'`;
+                  where text='${location}') and u='f'`;
 
     return `${yahooWeatherUrl}?q=${query}&format=json&env=store://datatables.org/alltableswithkeys&co&`;
 };
 
 export const getTimezoneUrl = (latitude, longitude) => (
     `https://maps.googleapis.com/maps/api/timezone/json?location=${latitude},${longitude}&timestamp=1331161200&sensor=false&key=${process.env.GOOGLE_API_KEY}`
-);
-
-export const getGeocodeUrl = (location) => (
-    `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&sensor=false&key=${process.env.GOOGLE_API_KEY}`
 );
 
 export const parseQueryResponse = ({query: { results }}) => {
