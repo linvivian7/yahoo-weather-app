@@ -1,0 +1,54 @@
+{
+    "globals": {
+        "sinon": 1
+    },
+    "plugins": ["react"],
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "jasmine": true,
+        "amd": true,
+        "es6": true
+    },
+    "rules": {
+        "complexity": 1,
+        "default-case": 1,
+        "guard-for-in": 1,
+        "no-unused-vars": 1,
+        "quotes": [2, "single"],
+        "vars-on-top" : 2,
+        "no-div-regex": 1,
+        "no-dupe-keys": 2,
+        "no-eq-null": 1,
+        "no-floating-decimal": 1,
+        "block-scoped-var": 1,
+        "no-param-reassign": 0,
+        "no-self-compare": 1,
+        "no-throw-literal": 1,
+        "no-void": 1,
+        "radix": 1,
+        "wrap-iife": [2, "inside"],
+        "no-warning-comments": [1, {
+            "terms": ["FIXME", "TODO"],
+            "location": "anywhere"
+        }],
+        "new-cap": [2, {
+            "capIsNewExceptions": ["Backbone"]
+        }],
+        "dot-notation": 0,
+        "no-underscore-dangle": 0,
+        "comma-dangle": [2, "never"],
+        "keyword-spacing": 1,
+        "consistent-this": [2, "self"],
+        "comma-style": [2, "last"],
+        "func-style": [2, "declaration", {"allowArrowFunctions": true}],
+        "newline-after-var": 1,
+        "no-inline-comments": 1,
+        "no-multiple-empty-lines": [2, {"max": 2}],
+        "no-nested-ternary": 2,
+        "one-var": [2, {"var": "always"}],
+        "semi": [2, "always"],
+        "react/jsx-curly-spacing": [2, {"when": "always"}],
+        "react/jsx-uses-vars": 1
+    }
+}

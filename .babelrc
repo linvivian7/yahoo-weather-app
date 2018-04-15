@@ -1,0 +1,25 @@
+{
+    "presets": [
+        [
+            "env",
+            {
+                "targets": {
+                    "browsers": [
+                        "last 2 versions"
+                    ],
+                    "node": "current"
+                },
+                "modules": false,
+                "loose": true
+            }
+        ],
+        "react",
+        "stage-3",
+        "es2015"
+    ],
+    "plugins": [
+        "transform-class-properties",
+        "dynamic-import-webpack",
+        "transform-regenerator"
+    ]
+}
