@@ -20,6 +20,8 @@
     "plugins": [
         "transform-class-properties",
         "dynamic-import-webpack",
-        "transform-regenerator"
+        "transform-regenerator",
+        "transform-async-to-generator",
+        "syntax-async-functions"
     ]
 }
