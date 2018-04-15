@@ -13,8 +13,6 @@ const LocationForm = (props) => {
       submitting
   } = props;
 
-  console.log('location form', props.error);
-
   return (
     <form onSubmit={ handleSubmit }>
       <div>
