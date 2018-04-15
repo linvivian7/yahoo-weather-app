@@ -11,6 +11,10 @@ import ConnectedPage from './containers/ConnectedPage';
 import reducer from './reducers';
 import configureStore from '../utils/configureStore';
 
+import './sass/weather-icons.min.scss';
+import './sass/weather-icons-wind.min.scss';
+import './app.scss';
+
 export default class App extends React.Component {
     constructor(props) {
         super(props);

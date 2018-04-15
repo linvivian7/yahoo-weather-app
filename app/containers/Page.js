@@ -9,7 +9,10 @@ export default class Page extends React.PureComponent {
         return (
             <div>
                 Weather App Page
-                <LocationForm onChange={ onChange } onSubmit={ onSubmit } />
+                <div>
+                    <i className="sunny wi wi-day-sunny"></i>
+                    <LocationForm onChange={ onChange } onSubmit={ onSubmit } />
+                </div>
             </div>
         );
     }

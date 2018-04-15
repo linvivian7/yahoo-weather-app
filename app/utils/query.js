@@ -3,7 +3,7 @@ export const getWeatherUrl = (location) => {
 
     let query  = `select * from weather.forecast
                   where woeid in (select woeid from geo.places(1)
-                  where text='${location}') and u='f'`;
+                  where text='${location}') and u='c'`;
 
     return `${yahooWeatherUrl}?q=${query}&format=json&env=store://datatables.org/alltableswithkeys&co&`;
 };
