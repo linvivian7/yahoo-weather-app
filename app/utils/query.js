@@ -7,3 +7,17 @@ export const getQueryUrl = (location) => {
 
     return `${yahooWeatherUrl}?q=${query}&format=json&env=store://datatables.org/alltableswithkeys&co&`;
 };
+
+export const parseQueryResponse = ({ query: { results }}) => {
+    let {
+        atmosphere,
+        item,
+        wind
+    } = results.channel;
+
+    return {
+        atmosphere,
+        item,
+        wind
+    };
+};
