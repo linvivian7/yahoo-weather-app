@@ -7,9 +7,15 @@ import {LOCATION_FORM_NAME} from '../../constants';
 import './locationForm.scss';
 
 const LocationForm = (props) => {
-    const {handleSubmit, error, onChange, pristine, submitting} = props;
+    const {
+        error,
+        handleSubmit,
+        onChange,
+        pristine,
+        searchTerm,
+        submitting
+    } = props;
     const disabled = pristine || submitting;
-
     const formInputClasses = classNames(
         'form__location-input',
         {
@@ -30,7 +36,7 @@ const LocationForm = (props) => {
                 className={ formInputClasses }
                 component="input"
                 name="location"
-                placeholder="Tokyo, Japan"
+                placeholder={ searchTerm }
                 type="text"
                 onChange={ onChange }
             />

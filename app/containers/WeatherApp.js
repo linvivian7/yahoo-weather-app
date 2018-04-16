@@ -12,10 +12,10 @@ export default class WeatherApp extends React.PureComponent {
     componentDidMount() {
         const {
             onSubmit,
-            location
+            searchTerm
         } = this.props;
 
-        onSubmit({location});
+        onSubmit({location: searchTerm});
     }
 
     onHomePageLinkClick(e) {
@@ -34,6 +34,7 @@ export default class WeatherApp extends React.PureComponent {
         const {
             onChange,
             onSubmit,
+            searchTerm,
             weatherInfo
         } = this.props;
         let locationCard;
@@ -59,6 +60,7 @@ export default class WeatherApp extends React.PureComponent {
         return (
             <div>
                 <Nav
+                    searchTerm={ searchTerm }
                     onChange={ onChange }
                     onSubmit={ onSubmit }
                     onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }

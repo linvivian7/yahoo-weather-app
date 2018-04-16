@@ -7,9 +7,10 @@ import getWeatherData from '../actions';
 import { LOCATION_FORM_NAME } from '../constants';
 import ForecastPage from './ForecastPage';
 
-const _mapStateToProps = (state) => (
-    state
-);
+const _mapStateToProps = (state) => ({
+    ...state,
+    searchTerm: `${state.weatherInfo.location.city}, ${state.weatherInfo.location.country}`
+});
 
 const _mapDispatchToProps = (dispatch) => ({
     ...getLinkHandlers(dispatch),

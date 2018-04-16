@@ -10,13 +10,13 @@ import WeatherApp from './WeatherApp';
 const _mapStateToProps = (state) => {
     let props = {
         ...state,
-        location: 'Tokyo, Japan'
+        searchTerm: 'Tokyo, Japan'
     };
 
     if (state.weatherInfo) {
         props = {
             ...state,
-            location: `${state.weatherInfo.location.city}`
+            searchTerm: `${state.weatherInfo.location.city}, ${state.weatherInfo.location.country}`
         };
     }
 

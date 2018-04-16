@@ -41,6 +41,7 @@ export default class ForecastPage extends React.Component {
         const {
             onChange,
             onSubmit,
+            searchTerm,
             weatherInfo
         } = this.props;
         const {
@@ -50,6 +51,7 @@ export default class ForecastPage extends React.Component {
         return (
             <div>
                 <Nav
+                    searchTerm={ searchTerm }
                     onChange={ onChange }
                     onSubmit={ onSubmit }
                     onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }
