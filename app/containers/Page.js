@@ -1,40 +1,11 @@
 import React from 'react';
 
-import Nav from '../components/Nav';
+import Nav from '../components/nav';
+import LocationCard from '../components/locationCard';
+import CurrentStatusCard from '../components/currentStatusCard';
+import LastUpdatedCard from '../components/LastUpdatedCard';
 
 export default class Page extends React.PureComponent {
-
-    _getLocationCard() {
-        const { weatherInfo: {
-            location
-        }} = this.props;
-
-        return (
-            <div className="location-name-container">
-                <div className="location-name">
-                    { `${location.city}, ${location.country}` }
-                </div>
-            </div>
-        );
-    }
-
-    _getCurrentStatsCard() {
-        const { weatherInfo: {
-            item
-        }} = this.props;
-        const { condition } = item;
-
-        return (
-            <div className="card current-status-container">
-                <div className="half-inner-card temperature">
-                    { `${condition.temp}` } <i className="wi wi-celsius"></i>
-                </div>
-                <div className="half-inner-card weather-icon">
-                    <i className="wi wi-yahoo-32"></i>
-                </div>
-            </div>
-        );
-    }
 
     _getLastUpdatedCard() {
         const { weatherInfo: {
@@ -58,11 +29,17 @@ export default class Page extends React.PureComponent {
         let locationCard;
         let currentStatusCard;
         let lastUpdatedCard;
+        let sunStatusCard;
 
         if (weatherInfo) {
-            locationCard = this._getLocationCard();
-            currentStatusCard = this._getCurrentStatsCard();
-            lastUpdatedCard = this._getLastUpdatedCard();
+            let {
+                item,
+                location
+            } = weatherInfo;
+
+            locationCard = (<LocationCard location={ location } />);
+            currentStatusCard = (<CurrentStatusCard condition={ item.condition } />);
+            lastUpdatedCard = (<LastUpdatedCard condition={ item.condition } />);
         }
 
         return (
@@ -72,6 +49,7 @@ export default class Page extends React.PureComponent {
                     { locationCard }
                     { currentStatusCard }
                     { lastUpdatedCard }
+                    { sunStatusCard }
                 </div>
             </div>
         );

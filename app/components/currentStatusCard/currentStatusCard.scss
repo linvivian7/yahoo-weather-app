@@ -1,0 +1,20 @@
+.current-status-container {
+    background-color: lightblue;
+    grid-row: 2 / 3;
+
+    display: flex;
+    justify-content: space-around;
+
+    .half-inner-card {
+        padding: 0 25px;
+        font-size: 50px;
+    }
+
+    .temperature {
+        background-color: pink;
+    }
+
+    .weather-icon {
+        background-color: green;
+    }
+}

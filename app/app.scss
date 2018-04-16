@@ -1,4 +1,4 @@
-@import './components/nav.scss';
+@import './components/nav/nav.scss';
 
 body {
     font-family: 'weather','Open Sans', sans-serif;
@@ -21,41 +21,5 @@ body {
     .card {
         padding: 15px 0;
         align-items: center;
-    }
-
-    .location-name-container {
-        background-color: red;
-        grid-row-start: 1;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .current-status-container {
-        background-color: lightblue;
-        grid-row: 2 / 3;
-
-        display: flex;
-        justify-content: space-around;
-
-        .half-inner-card {
-            padding: 0 25px;
-            font-size: 3em;
-        }
-
-        .temperature {
-            background-color: pink;
-        }
-
-        .weather-icon {
-            background-color: green;
-        }
-    }
-
-    .last-updated-container {
-        text-align: right;
-        grid-row: 3 / 4;
     }
 }
