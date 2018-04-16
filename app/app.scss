@@ -12,3 +12,13 @@ body {
         padding: 160px 10px 0 10px;
     }
 }
+
+.page-container {
+    display: grid;
+    grid-template: 10% repeat(4, 22.5%) / 100%;
+
+    .location-name-container {
+        background-color: red;
+        grid-column-start: 1;
+    }
+}

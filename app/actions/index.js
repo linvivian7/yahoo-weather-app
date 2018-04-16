@@ -42,7 +42,6 @@ function _getLocalTime(item) {
 export default function getWeatherData(searchLocation) {
     return async (dispatch) => {
         function onSuccess(response) {
-            debugger;
             const { item } = parseQueryResponse(response.data);
 
             dispatch(_getLocalTime(item));
