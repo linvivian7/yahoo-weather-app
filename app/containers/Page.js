@@ -6,14 +6,19 @@ export default class Page extends React.PureComponent {
 
     _getLocationCard() {
         const { weatherInfo: {
+            item,
             location
         }} = this.props;
+        const { condition } = item;
 
         return (
             <div className="location-name-container">
-                <span className="location-name">
+                <div className="location-name">
                     { `${location.city}, ${location.country}` }
-                </span>
+                </div>
+                <div className="location-name">
+                    { `${condition.date}` }
+                </div>
             </div>
         );
     }
@@ -25,10 +30,13 @@ export default class Page extends React.PureComponent {
         const { condition } = item;
 
         return (
-            <div className="current-status-container">
-                <span className="temperature">
-                    { `${condition.temp}` }
-                </span>
+            <div className="card current-status-container">
+                <div className="half-inner-card temperature">
+                    { `${condition.temp}` } <i className="wi wi-celsius"></i>
+                </div>
+                <div className="half-inner-card weather-icon">
+                    <i className="wi wi-yahoo-32"></i>
+                </div>
             </div>
         );
     }
@@ -51,11 +59,8 @@ export default class Page extends React.PureComponent {
             <div>
                 <Nav onChange={ onChange } onSubmit={ onSubmit } />
                 <div className="page-container">
-                    Weather App Page
-
                     { locationCard }
                     { currentStatusCard }
-
                 </div>
             </div>
         );
