@@ -19,9 +19,16 @@ const weatherInfo = (state = false, {type, payload}) => {
     let newState = state;
 
     if (type === SAVE_WEATHER) {
-        newState = parseQueryResponse(payload);
+        const weatherInfo = parseQueryResponse(payload);
+        const beaufortWindScore = beaufort(weatherInfo.wind.speed);
 
-        let beaufortWindScore = beaufort(newState.wind.speed);
+        newState = {
+            ...weatherInfo,
+            wind: {
+                ...weatherInfo.wind,
+                beaufortWindScore
+            }
+        };
     }
     return newState;
 };

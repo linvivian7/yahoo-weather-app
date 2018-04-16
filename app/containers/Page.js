@@ -6,18 +6,13 @@ export default class Page extends React.PureComponent {
 
     _getLocationCard() {
         const { weatherInfo: {
-            item,
             location
         }} = this.props;
-        const { condition } = item;
 
         return (
             <div className="location-name-container">
                 <div className="location-name">
                     { `${location.city}, ${location.country}` }
-                </div>
-                <div className="location-name">
-                    { `${condition.date}` }
                 </div>
             </div>
         );
@@ -41,6 +36,19 @@ export default class Page extends React.PureComponent {
         );
     }
 
+    _getLastUpdatedCard() {
+        const { weatherInfo: {
+            item
+        }} = this.props;
+        const { condition } = item;
+
+        return (
+            <div className="last-updated-container">
+                { `Last updated: ${condition.date}` }
+            </div>
+        );
+    }
+
     render() {
         let {
             onChange,
@@ -49,10 +57,12 @@ export default class Page extends React.PureComponent {
         } = this.props;
         let locationCard;
         let currentStatusCard;
+        let lastUpdatedCard;
 
         if (weatherInfo) {
             locationCard = this._getLocationCard();
             currentStatusCard = this._getCurrentStatsCard();
+            lastUpdatedCard = this._getLastUpdatedCard();
         }
 
         return (
@@ -61,6 +71,7 @@ export default class Page extends React.PureComponent {
                 <div className="page-container">
                     { locationCard }
                     { currentStatusCard }
+                    { lastUpdatedCard }
                 </div>
             </div>
         );

@@ -15,7 +15,7 @@ body {
 
 .page-container {
     display: grid;
-    grid-template: 10% repeat(4, 22.5%) / 100%;
+    grid-template: 10% 22% 2% repeat(3, 22%) / 100%;
     height: 100vh;
 
     .card {
@@ -52,5 +52,10 @@ body {
         .weather-icon {
             background-color: green;
         }
+    }
+
+    .last-updated-container {
+        text-align: right;
+        grid-row: 3 / 4;
     }
 }
