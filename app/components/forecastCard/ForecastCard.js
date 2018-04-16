@@ -3,12 +3,18 @@ import React from 'react';
 import './forecastCard.scss';
 
 const ForecastCard = ({ item, index }) => {
-    debugger;
+    const {
+        date,
+        high,
+        low
+    } = item;
+    const dayOfWeek = item.day;
+    const [day, month] = date.split(' ');
 
     return (
         <div className={ `forecast-container-${index}` }>
             <div className="location-name">
-                { `${item.text}` }
+                { `${dayOfWeek} ${month} ${day} ${high}`}<i className="wi wi-celsius"></i> { `${low}` } <i className="wi wi-celsius"></i>
             </div>
         </div>
     );
