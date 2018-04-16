@@ -20,7 +20,14 @@ const LocationForm = (props) => {
     return (
         <form onSubmit={ handleSubmit }>
         <div className="form__input-container">
-            <Field className="form__input--location" name="location" component="input" type="text" placeholder="Tokyo, Japan" onChange={ onChange }/>
+            <Field
+                className="form__input--location"
+                component="input"
+                name="location"
+                placeholder="Tokyo, Japan"
+                type="text"
+                onChange={ onChange }
+            />
             <button type="submit" className={ submitButtonClasses } disabled={ disabled }>
                 <i aria-hidden="true" className="fa fas fa-search"></i>
             </button>
