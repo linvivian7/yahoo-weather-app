@@ -1,0 +1,25 @@
+.wind-status-container {
+    background-color: aqua;
+    grid-row: 7 / 8;
+
+    display: flex;
+    justify-content: space-between;
+
+    .half-inner-card {
+        padding: 0 25px;
+        font-size: 50px;
+    }
+
+    .third-inner-card {
+        padding: 0 25px;
+        font-size: 5vw;
+    }
+
+    .sunrise {
+        background-color: pink;
+    }
+
+    .sunset {
+        background-color: green;
+    }
+}
