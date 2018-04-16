@@ -10,7 +10,7 @@ $break-width: 600px;
 }
 
 .nav {
-    font-size: 12px;
+    font-size: 18px;
     left: 0;
     letter-spacing: 2px;
     transition: all 0.5s ease;
@@ -39,8 +39,17 @@ $break-width: 600px;
             -webkit-transition: -webkit-transform 150ms;
         }
 
+        .current {
+            margin-top: 10px;
+        }
+
+        .forecast {
+            padding-bottom: 0;
+        }
+
         .ul__li--location-form {
             flex-grow: 1;
+            padding: 0;
         }
 
         li {

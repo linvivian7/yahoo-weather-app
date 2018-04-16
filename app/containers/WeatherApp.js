@@ -37,7 +37,7 @@ export default class WeatherApp extends React.PureComponent {
             weatherInfo
         } = this.props;
         let currentStatusCard;
-        let lastUpdatedCard;
+        // let lastUpdatedCard;
         let sunStatusCard;
         let windStatusCard;
 
@@ -48,7 +48,7 @@ export default class WeatherApp extends React.PureComponent {
             } = weatherInfo;
 
             currentStatusCard = (<CurrentStatusCard condition={ item.condition } searchTerm={ searchTerm } />);
-            lastUpdatedCard = (<LastUpdatedCard condition={ item.condition } />);
+            // lastUpdatedCard = (<LastUpdatedCard condition={ item.condition } />);
             sunStatusCard = (<SunStatusCard condition={ item.condition } />);
             windStatusCard = (<WindStatusCard wind={ wind } />);
         }
@@ -64,7 +64,6 @@ export default class WeatherApp extends React.PureComponent {
                 />
                 <div className="page-container">
                     { currentStatusCard }
-                    { lastUpdatedCard }
                     { sunStatusCard }
                     { windStatusCard }
                 </div>

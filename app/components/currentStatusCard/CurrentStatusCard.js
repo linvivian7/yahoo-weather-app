@@ -5,10 +5,7 @@ import './currentStatusCard.scss';
 const CurrentStatusCard = ({ searchTerm, condition }) => (
     <div className="card current-status-container">
         <div className="temperature">
-            { `${condition.temp}` } <i className="wi wi-celsius"></i>
-        </div>
-        <div className="statusText">
-            { `${condition.text}` }
+            <span> { `${condition.temp}` } </span><i className="wi wi-degrees"></i>
         </div>
         <div className="location">
             { searchTerm }
