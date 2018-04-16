@@ -1,27 +1,36 @@
 import React from 'react';
+import classNames from 'classnames';
 
+import { getWeatherDateTime } from '../../utils/dateTime';
 import './currentStatusCard.scss';
 
 const CurrentStatusCard = ({ atmosphere, condition, searchTerm }) => {
     const {
+        code,
         date,
         temp
     } = condition;
-    const [dayOfWeek, dateTime] = date.split(',');
-    const splitDateTime = dateTime.split(' ');
-    const day = splitDateTime[1];
-    const month = splitDateTime[2];
+    const {
+        dayOfWeek,
+        day,
+        month,
+        year
+    } = getWeatherDateTime(date);
+    const weatherIconClasses = classNames(
+        'wi',
+        `wi-yahoo-${code}`
+    );
 
     return (
         <div className="card current-status-container">
             <div className="weather-icon">
-                <i className="wi wi-yahoo-32"></i>
+                <i className={ weatherIconClasses }></i>
             </div>
             <div className="location">
                 { searchTerm }
             </div>
             <div className="date">
-                { `${dayOfWeek} ${month} ${day}` }
+                { `${dayOfWeek} ${month} ${day} ${year}` }
             </div>
             <div className="temperature">
                 <span> { `${temp}` }<i className="wi wi-degrees"></i></span>
