@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Nav from '../components/nav';
-import LocationCard from '../components/locationCard';
 import ForecastCard from '../components/forecastCard';
 
 export default class ForecastPage extends React.Component {
@@ -44,9 +43,6 @@ export default class ForecastPage extends React.Component {
             searchTerm,
             weatherInfo
         } = this.props;
-        const {
-            location
-        } = weatherInfo;
 
         return (
             <div>
@@ -57,7 +53,6 @@ export default class ForecastPage extends React.Component {
                     onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }
                     onForecastLinkClick={ this.onForecastLinkClick.bind(this) }
                 />
-                <LocationCard location={ location } />
                 { this._getForecastContainer(weatherInfo.item.forecast) }
             </div>
         );

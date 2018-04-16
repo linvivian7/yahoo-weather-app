@@ -2,12 +2,18 @@ import React from 'react';
 
 import './currentStatusCard.scss';
 
-const CurrentStatusCard = ({ condition }) => (
+const CurrentStatusCard = ({ searchTerm, condition }) => (
     <div className="card current-status-container">
-        <div className="half-inner-card temperature">
+        <div className="temperature">
             { `${condition.temp}` } <i className="wi wi-celsius"></i>
         </div>
-        <div className="half-inner-card weather-icon">
+        <div className="statusText">
+            { `${condition.text}` }
+        </div>
+        <div className="location">
+            { searchTerm }
+        </div>
+        <div className="weather-icon">
             <i className="wi wi-yahoo-32"></i>
         </div>
     </div>
