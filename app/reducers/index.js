@@ -4,7 +4,20 @@ import { reducer as form } from 'redux-form';
 
 import beaufort from 'beaufort-scale';
 import { parseQueryResponse } from '../utils/query';
+import { getCountryCode } from '../utils/country';
 import { SAVE_TIMEZONE, SAVE_WEATHER } from '../actions';
+
+const searchTerm = (state = 'Tokyo, Japan', {type, payload}) => {
+    let newState = state;
+
+    if (type === SAVE_WEATHER) {
+        const {location} = parseQueryResponse(payload);
+        const countryCode = getCountryCode(location.country);
+
+        newState = `${location.city}, ${countryCode}`;
+    }
+    return newState;
+};
 
 const timezone = (state = false, {type, payload}) => {
     let newState = state;
@@ -36,6 +49,7 @@ const weatherInfo = (state = false, {type, payload}) => {
 export default combineReducers({
     form,
     routing,
+    searchTerm,
     timezone,
     weatherInfo
 });

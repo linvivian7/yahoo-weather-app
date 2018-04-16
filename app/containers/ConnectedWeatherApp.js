@@ -7,21 +7,7 @@ import getWeatherData from '../actions';
 import { LOCATION_FORM_NAME } from '../constants';
 import WeatherApp from './WeatherApp';
 
-const _mapStateToProps = (state) => {
-    let props = {
-        ...state,
-        searchTerm: 'Tokyo, Japan'
-    };
-
-    if (state.weatherInfo) {
-        props = {
-            ...state,
-            searchTerm: `${state.weatherInfo.location.city}, ${state.weatherInfo.location.country}`
-        };
-    }
-
-    return props;
-};
+const _mapStateToProps = (state) => state;
 
 const _mapDispatchToProps = (dispatch) => ({
     ...getLinkHandlers(dispatch),

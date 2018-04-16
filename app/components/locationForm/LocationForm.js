@@ -12,7 +12,7 @@ const LocationForm = (props) => {
         handleSubmit,
         onChange,
         pristine,
-        searchTerm,
+        location,
         submitting
     } = props;
     const disabled = pristine || submitting;
@@ -36,7 +36,7 @@ const LocationForm = (props) => {
                 className={ formInputClasses }
                 component="input"
                 name="location"
-                placeholder={ searchTerm }
+                placeholder={ location }
                 type="text"
                 onChange={ onChange }
             />

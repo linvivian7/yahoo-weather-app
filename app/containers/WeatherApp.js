@@ -2,7 +2,6 @@ import React from 'react';
 
 import Nav from '../components/nav';
 import CurrentStatusCard from '../components/currentStatusCard';
-import LastUpdatedCard from '../components/LastUpdatedCard';
 import SunStatusCard from '../components/SunStatusCard';
 import WindStatusCard from '../components/WindStatusCard';
 
@@ -31,24 +30,28 @@ export default class WeatherApp extends React.PureComponent {
 
     render() {
         const {
+            searchTerm,
             onChange,
             onSubmit,
-            searchTerm,
             weatherInfo
         } = this.props;
         let currentStatusCard;
-        // let lastUpdatedCard;
         let sunStatusCard;
         let windStatusCard;
 
         if (weatherInfo) {
             const {
+                atmosphere,
                 item,
                 wind
             } = weatherInfo;
 
-            currentStatusCard = (<CurrentStatusCard condition={ item.condition } searchTerm={ searchTerm } />);
-            // lastUpdatedCard = (<LastUpdatedCard condition={ item.condition } />);
+            currentStatusCard = (
+                <CurrentStatusCard
+                    atmosphere= { atmosphere }
+                    condition={ item.condition }
+                    searchTerm={ searchTerm }
+                />);
             sunStatusCard = (<SunStatusCard condition={ item.condition } />);
             windStatusCard = (<WindStatusCard wind={ wind } />);
         }
@@ -56,7 +59,7 @@ export default class WeatherApp extends React.PureComponent {
         return (
             <div>
                 <Nav
-                    searchTerm={ searchTerm }
+                    location= { searchTerm }
                     onChange={ onChange }
                     onSubmit={ onSubmit }
                     onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }

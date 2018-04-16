@@ -3,7 +3,7 @@ import React from 'react';
 import LocationForm from '../locationForm';
 import './nav.scss';
 
-const Nav = ({ searchTerm, onChange, onSubmit, onHomePageLinkClick, onForecastLinkClick }) => (
+const Nav = ({ location, onChange, onSubmit, onHomePageLinkClick, onForecastLinkClick }) => (
     <nav className="nav sticky">
         <ul className="navbar">
             <li className="current">
@@ -13,7 +13,7 @@ const Nav = ({ searchTerm, onChange, onSubmit, onHomePageLinkClick, onForecastLi
                 <a href="/" onClick={ onForecastLinkClick }>10-Day Forecast</a>
             </li>
             <li className="ul__li--location-form">
-                <LocationForm searchTerm={ searchTerm } onChange={ onChange } onSubmit={ onSubmit } />
+                <LocationForm location={ location } onChange={ onChange } onSubmit={ onSubmit } />
             </li>
         </ul>
     </nav>

@@ -47,7 +47,7 @@ export default class ForecastPage extends React.Component {
         return (
             <div>
                 <Nav
-                    searchTerm={ searchTerm }
+                    location={ searchTerm }
                     onChange={ onChange }
                     onSubmit={ onSubmit }
                     onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }
