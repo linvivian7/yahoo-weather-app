@@ -1,6 +1,6 @@
-.current-status-container {
-    background-color: lightblue;
-    grid-row: 3 / 4;
+.sun-status-container {
+    background-color: purple;
+    grid-row: 5 / 6;
 
     display: flex;
     justify-content: space-around;
@@ -10,11 +10,11 @@
         font-size: 50px;
     }
 
-    .temperature {
+    .sunrise {
         background-color: pink;
     }
 
-    .weather-icon {
+    .sunset {
         background-color: green;
     }
 }

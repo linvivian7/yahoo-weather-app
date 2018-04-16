@@ -14,6 +14,7 @@ export const getTimezoneUrl = (latitude, longitude) => (
 
 export const parseQueryResponse = ({query: { results }}) => {
     let {
+        astronomy,
         atmosphere,
         item,
         location,
@@ -21,6 +22,7 @@ export const parseQueryResponse = ({query: { results }}) => {
     } = results.channel;
 
     return {
+        astronomy,
         atmosphere,
         item,
         location,

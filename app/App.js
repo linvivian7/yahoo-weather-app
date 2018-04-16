@@ -6,7 +6,7 @@ import { Route, Router } from 'react-router';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
-import ConnectedPage from './containers/ConnectedPage';
+import ConnectedWeatherApp from './containers/ConnectedWeatherApp';
 
 import reducer from './reducers';
 import configureStore from '../utils/configureStore';
@@ -37,7 +37,7 @@ export default class App extends React.Component {
         return (
             <Provider store={ this._store }>
                 <Router history={ this._history }>
-                    <Route path="/" component={ ConnectedPage } />
+                    <Route path="/" component={ ConnectedWeatherApp } />
                 </Router>
             </Provider>
         );

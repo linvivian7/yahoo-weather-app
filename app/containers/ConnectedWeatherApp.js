@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import getWeatherData from '../actions';
 import { LOCATION_FORM_NAME } from '../constants';
-import Page from './Page';
+import WeatherApp from './WeatherApp';
 
 const _mapStateToProps = (state) => (
     state
@@ -22,4 +22,4 @@ const _mapDispatchToProps = (dispatch) => ({
 export default connect(
     _mapStateToProps,
     _mapDispatchToProps
-)(Page);
+)(WeatherApp);

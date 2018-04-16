@@ -4,24 +4,12 @@ import Nav from '../components/nav';
 import LocationCard from '../components/locationCard';
 import CurrentStatusCard from '../components/currentStatusCard';
 import LastUpdatedCard from '../components/LastUpdatedCard';
+import SunStatusCard from '../components/SunStatusCard';
+import WindStatusCard from '../components/WindStatusCard';
 
-export default class Page extends React.PureComponent {
-
-    _getLastUpdatedCard() {
-        const { weatherInfo: {
-            item
-        }} = this.props;
-        const { condition } = item;
-
-        return (
-            <div className="last-updated-container">
-                { `Last updated: ${condition.date}` }
-            </div>
-        );
-    }
-
+export default class WeatherApp extends React.PureComponent {
     render() {
-        let {
+        const {
             onChange,
             onSubmit,
             weatherInfo
@@ -30,16 +18,20 @@ export default class Page extends React.PureComponent {
         let currentStatusCard;
         let lastUpdatedCard;
         let sunStatusCard;
+        let windStatusCard;
 
         if (weatherInfo) {
-            let {
+            const {
                 item,
-                location
+                location,
+                wind
             } = weatherInfo;
 
             locationCard = (<LocationCard location={ location } />);
             currentStatusCard = (<CurrentStatusCard condition={ item.condition } />);
             lastUpdatedCard = (<LastUpdatedCard condition={ item.condition } />);
+            sunStatusCard = (<SunStatusCard condition={ item.condition } />);
+            windStatusCard = (<WindStatusCard wind={ wind } />);
         }
 
         return (
@@ -50,6 +42,7 @@ export default class Page extends React.PureComponent {
                     { currentStatusCard }
                     { lastUpdatedCard }
                     { sunStatusCard }
+                    { windStatusCard }
                 </div>
             </div>
         );
