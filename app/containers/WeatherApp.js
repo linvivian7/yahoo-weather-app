@@ -8,6 +8,11 @@ import SunStatusCard from '../components/SunStatusCard';
 import WindStatusCard from '../components/WindStatusCard';
 
 export default class WeatherApp extends React.PureComponent {
+
+    componentDidMount() {
+        this.props.onSubmit();
+    }
+
     render() {
         const {
             onChange,
