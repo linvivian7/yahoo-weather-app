@@ -10,7 +10,24 @@ import WindStatusCard from '../components/WindStatusCard';
 export default class WeatherApp extends React.PureComponent {
 
     componentDidMount() {
-        this.props.onSubmit();
+        const {
+            onSubmit,
+            location
+        } = this.props;
+
+        onSubmit({location});
+    }
+
+    onHomePageLinkClick(e) {
+        e.preventDefault();
+
+        this.props.onHomePageLinkClick();
+    }
+
+    onForecastLinkClick(e) {
+        e.preventDefault();
+
+        this.props.onForecastLinkClick();
     }
 
     render() {
@@ -41,7 +58,12 @@ export default class WeatherApp extends React.PureComponent {
 
         return (
             <div>
-                <Nav onChange={ onChange } onSubmit={ onSubmit } />
+                <Nav
+                    onChange={ onChange }
+                    onSubmit={ onSubmit }
+                    onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }
+                    onForecastLinkClick={ this.onForecastLinkClick.bind(this) }
+                />
                 <div className="page-container">
                     { locationCard }
                     { currentStatusCard }

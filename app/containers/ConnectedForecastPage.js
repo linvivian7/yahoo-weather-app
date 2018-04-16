@@ -5,23 +5,11 @@ import { connect } from 'react-redux';
 import { getLinkHandlers } from '../utils/link';
 import getWeatherData from '../actions';
 import { LOCATION_FORM_NAME } from '../constants';
-import WeatherApp from './WeatherApp';
+import ForecastPage from './ForecastPage';
 
-const _mapStateToProps = (state) => {
-    let props = {
-        ...state,
-        location: 'Tokyo, Japan'
-    };
-
-    if (state.weatherInfo) {
-        props = {
-            ...state,
-            location: `${state.weatherInfo.location.city}`
-        };
-    }
-
-    return props;
-};
+const _mapStateToProps = (state) => (
+    state
+);
 
 const _mapDispatchToProps = (dispatch) => ({
     ...getLinkHandlers(dispatch),
@@ -36,4 +24,4 @@ const _mapDispatchToProps = (dispatch) => ({
 export default connect(
     _mapStateToProps,
     _mapDispatchToProps
-)(WeatherApp);
+)(ForecastPage);

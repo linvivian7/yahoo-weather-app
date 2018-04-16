@@ -3,7 +3,7 @@ $primary-color: #2196F3;
 .form__input-container {
     position: relative;
 
-    .form__input--location {
+    .form__location-input {
         border: 2px solid #aaa;
         border-radius: 4px;
         box-sizing: border-box;
@@ -19,6 +19,15 @@ $primary-color: #2196F3;
         &:focus {
             border-color: $primary-color;
             box-shadow: 0 0 8px 0 $primary-color;
+        }
+    }
+
+    .form__location-input--error {
+        border: 2px solid red;
+
+        &:focus {
+            border-color: red;
+            box-shadow: 0 0 8px 0 red;
         }
     }
 

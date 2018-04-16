@@ -1,13 +1,14 @@
 import React from 'react';
-import { createMemoryHistory } from 'history';
 
 import { Provider } from 'react-redux';
-import { Route, Router } from 'react-router';
+import { Route, Router, createMemoryHistory } from 'react-router';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
 import ConnectedWeatherApp from './containers/ConnectedWeatherApp';
+import ConnectedForecastPage from './containers/ConnectedForecastPage';
 
+import { BASE_URL, FORECAST_URL } from './constants';
 import reducer from './reducers';
 import configureStore from '../utils/configureStore';
 
@@ -37,7 +38,8 @@ export default class App extends React.Component {
         return (
             <Provider store={ this._store }>
                 <Router history={ this._history }>
-                    <Route path="/" component={ ConnectedWeatherApp } />
+                    <Route exact path={ BASE_URL } component={ ConnectedWeatherApp } />
+                    <Route path={ FORECAST_URL } component={ ConnectedForecastPage } />
                 </Router>
             </Provider>
         );

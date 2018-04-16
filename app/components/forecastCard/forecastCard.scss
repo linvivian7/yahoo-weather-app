@@ -1,0 +1,14 @@
+@for $i from 0 through 9 {
+    $rowstart: 1 + 2*$i;
+
+    .forecast-container-#{$i} {
+        background-color: lightblue;
+        grid-row-start: $rowstart;
+        font-size: 6vw;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
