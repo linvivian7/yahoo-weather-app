@@ -1,27 +1,18 @@
 import React from 'react';
 
-import LocationForm from '../components/LocationForm';
+import Nav from '../components/Nav';
 
 export default class Page extends React.PureComponent {
     render() {
-        let { onChange, onSubmit } = this.props;
+        let {
+            onChange,
+            onSubmit,
+            weatherInfo
+        } = this.props;
 
         return (
             <div>
-                <nav className="nav sticky">
-                  <ul className="navbar">
-                    <li>
-                        <a href="#current">Current Forecast</a>
-                    </li>
-                    <li>
-                        <a href="#10day">10-Day Forecast</a>
-                    </li>
-                    <li className="ul__li--location-form">
-                        <LocationForm onChange={ onChange } onSubmit={ onSubmit } />
-                    </li>
-                  </ul>
-                </nav>
-
+                <Nav onChange={ onChange } onSubmit={ onSubmit } />
                 <div>
                     Weather App Page
                     <p>
