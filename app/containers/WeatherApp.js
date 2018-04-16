@@ -41,6 +41,7 @@ export default class WeatherApp extends React.PureComponent {
 
         if (weatherInfo) {
             const {
+                astronomy,
                 atmosphere,
                 item,
                 wind
@@ -52,7 +53,7 @@ export default class WeatherApp extends React.PureComponent {
                     condition={ item.condition }
                     searchTerm={ searchTerm }
                 />);
-            sunStatusCard = (<SunStatusCard condition={ item.condition } />);
+            sunStatusCard = (<SunStatusCard astronomy={ astronomy } />);
             windStatusCard = (<WindStatusCard wind={ wind } />);
         }
 

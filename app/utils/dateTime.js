@@ -1,14 +1,15 @@
-export const getWeatherDateTime = (date) => {
-    const [dayOfWeek, dateTime] = date.split(',');
-    const splitDateTime = dateTime.split(' ');
-    const day = splitDateTime[1];
-    const month = splitDateTime[2];
-    const year = splitDateTime[3];
+import moment from 'moment';
 
-    return {
-        dayOfWeek,
-        day,
-        month,
-        year
-    };
-};
+const _removeTimezone = (date) => date.split(' ').slice(0,-1).join(' ');
+
+const _getMomentDateTime = (date) => (
+    moment(_removeTimezone(date), 'ddd, D MMM YYYY hh:mm A')
+);
+
+export const getDisplayDateTime = (date) => (
+    _getMomentDateTime(date).format('ddd MMM D YYYY')
+);
+
+export const getSunriseSunsetTime = (time) => (
+    moment(time, 'h:m A').format('h:mm A')
+);

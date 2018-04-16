@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import { getWeatherDateTime } from '../../utils/dateTime';
+import { getDisplayDateTime } from '../../utils/dateTime';
 import './currentStatusCard.scss';
 
 const CurrentStatusCard = ({ atmosphere, condition, searchTerm }) => {
@@ -10,12 +10,6 @@ const CurrentStatusCard = ({ atmosphere, condition, searchTerm }) => {
         date,
         temp
     } = condition;
-    const {
-        dayOfWeek,
-        day,
-        month,
-        year
-    } = getWeatherDateTime(date);
     const weatherIconClasses = classNames(
         'wi',
         `wi-yahoo-${code}`
@@ -30,7 +24,7 @@ const CurrentStatusCard = ({ atmosphere, condition, searchTerm }) => {
                 { searchTerm }
             </div>
             <div className="date">
-                { `${dayOfWeek} ${month} ${day} ${year}` }
+                { getDisplayDateTime(date) }
             </div>
             <div className="temperature">
                 <span> { `${temp}` }<i className="wi wi-degrees"></i></span>

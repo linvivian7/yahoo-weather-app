@@ -1,20 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Roboto+Condensed');
+
 .sun-status-container {
-    background-color: purple;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #6AB187;
     grid-row: 3;
+    box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
+    color: white;
 
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template: 25% 50% 25% / 15% 70% 15%;
 
-    .half-inner-card {
-        padding: 0 25px;
-        font-size: 50px;
+    .sun-icon-wrapper {
+        font-size: 32px;
+
+        &.sunrise-icon {
+            grid-column: 1;
+            grid-row: 1;
+
+            justify-self: flex-end;
+        }
+
+        &.sunset-icon {
+            grid-column: 3;
+            grid-row: 3;
+        }
     }
 
-    .sunrise {
-        background-color: pink;
+    .sunrise-text {
+        grid-column: 2;
+        grid-row: 1;
+
+        padding-left: 12px;
     }
 
-    .sunset {
-        background-color: green;
+    .sunset-text {
+        grid-column: 2;
+        grid-row: 3;
+
+        justify-self: flex-end;
+        padding-right: 12px;
     }
 }
