@@ -1,9 +1,30 @@
+@function get-image-class($time) {
+  @return url('../../img/#{$time}.jpg');
+}
+
 .wind-status-container {
-    background-color: aqua;
+    font-family: 'Roboto Condensed', sans-serif;
+    box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
+    color: white;
     grid-row: 5 / 6;
 
     display: flex;
     justify-content: space-between;
+
+    &.image-day {
+        background: get-image-class(morning);
+        background-size: cover;
+    }
+
+    &.image-afternoon {
+        background: get-image-class(afternoon);
+        background-size: cover;
+    }
+
+    &.image-night {
+        background: get-image-class(night);
+        background-size: cover;
+    }
 
     .half-inner-card {
         padding: 0 25px;

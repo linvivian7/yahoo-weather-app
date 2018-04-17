@@ -55,7 +55,7 @@ export default class WeatherApp extends React.PureComponent {
                     searchTerm={ searchTerm }
                 />);
             sunStatusCard = (<SunStatusCard timezone={ timezone } astronomy={ astronomy } />);
-            windStatusCard = (<WindStatusCard wind={ wind } />);
+            windStatusCard = (<WindStatusCard timezone={ timezone } wind={ wind } />);
         }
 
         return (

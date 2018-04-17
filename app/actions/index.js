@@ -21,14 +21,14 @@ const _saveTimezone = ({ data }) => ({
 
 const onError = (dispatch) => dispatch(sendLocationError());
 
-function _getLocalTime(item) {
+function _getLocalTime(results) {
     return async (dispatch) => {
         function onSuccess(response) {
             dispatch(_saveTimezone(response));
         }
 
         try {
-            const { lat, long } = item;
+            const { lat, long } = results;
             const response = await axios.get(getTimezoneUrl(lat, long));
 
             return onSuccess(response);
@@ -37,7 +37,6 @@ function _getLocalTime(item) {
         }
     };
 }
-
 
 export default function getWeatherData(searchLocation) {
     return async (dispatch) => {
