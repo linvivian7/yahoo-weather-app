@@ -1,14 +1,42 @@
+@import '../../sass/constants.scss';
+
 @for $i from 0 through 9 {
     $rowstart: 1 + 2*$i;
 
-    .forecast-container-#{$i} {
-        background-color: lightblue;
+    .forecast-container.forecast-container-#{$i} {
         grid-row-start: $rowstart;
-        font-size: 6vw;
+    }
+}
 
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+.forecast-container {
+    @include status-card
+    background-color: $text-color-lagoon;
+    font-size: 5vw;
+
+    grid-template: 100% / 5% repeat(5, 1fr);
+    justify-content: center;
+    text-transform: uppercase;
+    padding: 0 12px;
+
+    .dayOfWeek {
+        grid-column: 2;
+    }
+
+    .weather-icon {
+        grid-column: 3;
+    }
+
+    .temperature-hi {
+        grid-column: 4;
+    }
+
+    .temperature-low {
+        grid-column: 5;
+    }
+
+    .date {
+        font-size: 4vw;
+        grid-column: 6;
+        justify-self: flex-end;
     }
 }

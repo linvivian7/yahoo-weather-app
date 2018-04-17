@@ -29,11 +29,11 @@
         margin: 0;
         text-transform: uppercase;
 
-        padding-left: 0;
         flex-direction: column;
         justify-content: space-around;
         transition: transform 150ms;
         -webkit-transition: -webkit-transform 150ms;
+        padding: 0 15px;
 
         @media (min-width: $break-width) {
             justify-content: stretch;
@@ -56,6 +56,7 @@
             list-style: none;
             padding: 5px;
             text-align: center;
+            width: 100%;
 
             &:hover a {
                 font-weight: bold;
