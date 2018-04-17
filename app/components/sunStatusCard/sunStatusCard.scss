@@ -2,10 +2,10 @@
 
 .sun-status-container {
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #6AB187;
     grid-row: 3;
     box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
     color: white;
+    background: linear-gradient(-197deg, #DE7122, #F4CC70, #61b187, #20948B);
 
     display: grid;
     grid-template: 25% 50% 25% / 15% 70% 15%;
@@ -14,7 +14,7 @@
         grid-column: 2;
         grid-row: 2;
 
-        font-size: 50px;
+        font-size: 60px;
         justify-self: center;
     }
 
