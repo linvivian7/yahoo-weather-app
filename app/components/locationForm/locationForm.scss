@@ -1,4 +1,4 @@
-$primary-color: #2196F3;
+@import '../../sass/constants.scss';
 
 .form__input-container {
     position: relative;
@@ -18,8 +18,8 @@ $primary-color: #2196F3;
         width: 100%;
 
         &:focus {
-            border-color: $primary-color;
-            box-shadow: 0 0 8px 0 $primary-color;
+            border-color: $temp-hover-color;
+            box-shadow: 0 0 8px 0 $temp-hover-color;
         }
     }
 
@@ -46,7 +46,7 @@ $primary-color: #2196F3;
     }
 
     .form__input--location + .form__btn {
-        color: $primary-color;
+        color: $temp-hover-color;
     }
 
     .form__input--location + .form__btn--disabled {

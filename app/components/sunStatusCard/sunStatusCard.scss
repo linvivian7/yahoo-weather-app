@@ -1,3 +1,4 @@
+@import '../../sass/constants.scss';
 @import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Roboto+Condensed');
 
 .sun-status-container {
@@ -5,7 +6,7 @@
     grid-row: 3;
     box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
     color: white;
-    background: linear-gradient(-197deg, #DE7122, #F4CC70, #61b187, #20948B);
+    background: linear-gradient(-197deg, #DE7122, $text-color-sandstone, #61b187, $text-color-sea);
 
     display: grid;
     grid-template: 25% 50% 25% / 15% 70% 15%;

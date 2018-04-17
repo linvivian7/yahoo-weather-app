@@ -1,5 +1,4 @@
-@import '../locationForm/locationForm.scss';
-$break-width: 600px;
+@import '../../sass/constants.scss';
 
 .sticky {
     background-color: #fff;
@@ -27,20 +26,18 @@ $break-width: 600px;
     .navbar {
         align-items: center;
         display: flex;
-        justify-content: stretch;
         margin: 0;
         text-transform: uppercase;
 
-        @media (max-width: $break-width) {
-            flex-direction: column;
-            justify-content: space-around;
-            padding-left: 0;
-            transition: transform 150ms;
-            -webkit-transition: -webkit-transform 150ms;
-        }
+        padding-left: 0;
+        flex-direction: column;
+        justify-content: space-around;
+        transition: transform 150ms;
+        -webkit-transition: -webkit-transform 150ms;
 
-        .current {
-            margin-top: 10px;
+        @media (min-width: $break-width) {
+            justify-content: stretch;
+            flex-direction: row;
         }
 
         .forecast {
@@ -52,26 +49,33 @@ $break-width: 600px;
             padding: 0;
         }
 
-        li {
+        .nav__list-item {
             cursor: pointer;
             display: inline-block;
             line-height: 30px;
             list-style: none;
-            padding: 15px;
+            padding: 5px;
             text-align: center;
-
-            @media (max-width: $break-width) {
-                padding: 5px,
-            }
 
             &:hover a {
                 font-weight: bold;
-                color: $primary-color;
+                color: $temp-hover-color;
             }
 
             a {
                 color: #6E7982;
                 text-decoration: none;
+            }
+            @media (min-width: $break-width) {
+                padding: 15px;
+            }
+        }
+
+        .current {
+            margin-top: 10px;
+
+            @media (min-width: $break-width) {
+                margin-top: 0;
             }
         }
     }

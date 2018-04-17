@@ -6,13 +6,13 @@ import './nav.scss';
 const Nav = ({ location, onChange, onSubmit, onHomePageLinkClick, onForecastLinkClick }) => (
     <nav className="nav sticky">
         <ul className="navbar">
-            <li className="current">
+            <li className="nav__list-item current">
                 <a href="/" onClick={ onHomePageLinkClick }>Current Forecast</a>
             </li>
-            <li className="forecast">
+            <li className="nav__list-item forecast">
                 <a href="/" onClick={ onForecastLinkClick }>10-Day Forecast</a>
             </li>
-            <li className="ul__li--location-form">
+            <li className="nav__list-item ul__li--location-form">
                 <LocationForm location={ location } onChange={ onChange } onSubmit={ onSubmit } />
             </li>
         </ul>
