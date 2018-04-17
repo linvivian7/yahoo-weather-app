@@ -15,6 +15,7 @@ const LocationForm = (props) => {
         pristine,
         location
     } = props;
+
     const disabled = pristine || submitting;
     const formInputClasses = classNames(
         'form__location-input',

@@ -22,7 +22,7 @@ const WindStatusCard = ({ astronomy, timezone, units, wind }) => {
         'wi',
         `wi-wind-beaufort-${ Math.round(beaufortWindScore.grade) }`
     );
-    const { day, afternoon, night } = getSunriseSunsetHour(astronomy);
+    const { day, afternoon, night } = getSunriseSunsetHours(astronomy);
     const currentHour = currentLocalTime.hours();
     const windContainerClasses= classNames(
         'wind-status-container',
@@ -32,7 +32,8 @@ const WindStatusCard = ({ astronomy, timezone, units, wind }) => {
             'image-night': currentHour >= night || currentHour <= day
         }
     );
-    const [distanceUnit, timeUnit] = units.split('/');
+
+    const [distanceUnit, timeUnit] = units.speed.split('/');
 
     return (
         <div className={ windContainerClasses }>

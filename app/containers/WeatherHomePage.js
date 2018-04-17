@@ -5,8 +5,21 @@ import CurrentStatusCard from '../components/currentStatusCard';
 import SunStatusCard from '../components/SunStatusCard';
 import WindStatusCard from '../components/WindStatusCard';
 
-export default class WeatherHomePage extends React.PureComponent {
+const _removeInitialLoader = () => {
+    setTimeout(function() {
+        document.getElementsByClassName('loader-wrapper')[0].remove();
+    }, 500);
+};
 
+const _showLoader = () => {
+    document.getElementsByClassName('loader-wrapper')[0].style.display = 'initial';
+};
+
+const _hideLoader = () => {
+    document.getElementsByClassName('loader-wrapper')[0].style.display = 'none';
+};
+
+export default class WeatherHomePage extends React.PureComponent {
     componentDidMount() {
         const {
             onSubmit,
@@ -14,6 +27,18 @@ export default class WeatherHomePage extends React.PureComponent {
         } = this.props;
 
         onSubmit({location: searchTerm});
+
+        _removeInitialLoader();
+    }
+
+    componentDidUpdate() {
+        const { isLoading } = this.props;
+
+        if (isLoading) {
+            _showLoader();
+        } else {
+            _hideLoader();
+        }
     }
 
     onHomePageLinkClick(e) {
@@ -39,6 +64,7 @@ export default class WeatherHomePage extends React.PureComponent {
         let currentStatusCard;
         let sunStatusCard;
         let windStatusCard;
+        let loader;
 
         if (weatherInfo) {
             const {
@@ -76,6 +102,8 @@ export default class WeatherHomePage extends React.PureComponent {
                     onForecastLinkClick={ this.onForecastLinkClick.bind(this) }
                 />
                 <div className="page-container">
+                    <div className="loader-wrapper"></div>
+                    { loader }
                     { currentStatusCard }
                     { sunStatusCard }
                     { windStatusCard }
