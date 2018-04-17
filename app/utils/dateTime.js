@@ -13,3 +13,11 @@ export const getDisplayDateTime = (date) => (
 export const getSunriseSunsetTime = (time) => (
     moment(time, 'h:m A').format('h:mm A')
 );
+
+export const getSunriseSunsetHours = ({ sunrise, sunset}) => {
+    const day = moment(sunrise, 'h:m A').hours();
+    const night =  moment(sunset, 'h:m A').hours();
+    const afternoon = (night - day) / 2;
+
+    return { day, afternoon, night };
+};

@@ -16,7 +16,7 @@ const CurrentStatusCard = ({ atmosphere, condition, searchTerm }) => {
     );
 
     return (
-        <div className="card current-status-container">
+        <div className="current-status-container">
             <div className="weather-icon">
                 <i className={ weatherIconClasses }></i>
             </div>

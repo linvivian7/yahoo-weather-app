@@ -1,17 +1,40 @@
 @import '../../sass/constants.scss';
-@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Roboto+Condensed');
+
+@mixin first-column {
+    @media (min-width: $break-width) {
+        grid-column: 1;
+    }
+}
+
+@mixin double-column {
+    @media (min-width: $break-width) {
+        grid-column: 1 / 3;
+    }
+}
+
+@mixin third-column {
+    @media (min-width: $break-width) {
+        grid-column: 2;
+    }
+}
 
 .sun-status-container {
-    font-family: 'Roboto Condensed', sans-serif;
-    grid-row: 3;
-    box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
-    color: white;
+    @include status-card
     background: linear-gradient(-197deg, #DE7122, $text-color-sandstone, #61b187, $text-color-sea);
-
-    display: grid;
+    grid-row: 3;
     grid-template: 25% 50% 25% / 15% 70% 15%;
 
+    @media (min-width: $break-width) {
+        background: linear-gradient(-180deg, #DE7122, $text-color-sandstone, #61b187, $text-color-sea);
+        grid-row: 3;
+        grid-column: 3;
+        grid-template: 25% 50% 25% / 40% 60%;
+
+        align-items: center;
+    }
+
     .current-time {
+        @include double-column
         grid-column: 2;
         grid-row: 2;
 
@@ -23,6 +46,7 @@
         font-size: 32px;
 
         &.sunrise-icon {
+            @include first-column
             grid-column: 1;
             grid-row: 1;
 
@@ -30,8 +54,13 @@
         }
 
         &.sunset-icon {
+            @include first-column
             grid-column: 3;
             grid-row: 3;
+
+            @media (min-width: $break-width) {
+                justify-self: flex-end;
+            }
         }
     }
 
@@ -39,6 +68,7 @@
         font-size: 24px;
 
         &.sunrise-text {
+            @include third-column
             grid-column: 2;
             grid-row: 1;
 
@@ -46,11 +76,16 @@
         }
 
         &.sunset-text {
+            @include third-column
             grid-column: 2;
             grid-row: 3;
 
             justify-self: flex-end;
-            padding-right: 12px;
+
+            @media (min-width: $break-width) {
+                justify-self: flex-start;
+                padding-left: 12px;
+            }
         }
     }
 }

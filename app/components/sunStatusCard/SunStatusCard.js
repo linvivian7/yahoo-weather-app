@@ -35,7 +35,7 @@ export default class SunStatusCard extends React.PureComponent {
         const { currentLocalTime } = this.state;
 
         return (
-            <div className="card sun-status-container">
+            <div className="sun-status-container">
                 <div className="sun-icon-wrapper sunrise-icon">
                     <i className="wi wi-sunrise"></i>
                 </div>

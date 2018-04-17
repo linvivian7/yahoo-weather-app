@@ -1,7 +1,21 @@
-$break-width: 600px;
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+$break-width: 768px;
 $temp-hover-color: #2196F3;
 
 $text-color-sandstone: #F4CC70;
 $text-color-burnt-orange: #DE7A22;
 $text-color-sea: #20948B;
 $text-color-lagoon: #6AB187;
+
+$font-family-primary: 'Roboto Condensed', sans-serif;
+$font-family-nav: 'Open Sans', sans-serif;
+
+@mixin status-card {
+    box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
+    color: white;
+    display: grid;
+    font-family: $font-family-primary;
+    margin-bottom: 15px 0;
+    align-items: center;
+}

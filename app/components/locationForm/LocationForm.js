@@ -11,6 +11,7 @@ const LocationForm = (props) => {
         error,
         handleSubmit,
         onChange,
+        submitting,
         pristine,
         location
     } = props;

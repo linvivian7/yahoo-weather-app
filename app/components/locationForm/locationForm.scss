@@ -45,11 +45,11 @@
         outline: inherit;
     }
 
-    .form__input--location + .form__btn {
+    .form__location-input + .form__btn {
         color: $temp-hover-color;
     }
 
-    .form__input--location + .form__btn--disabled {
+    .form__location-input + .form__btn--disabled {
         color: gray;
     }
 }

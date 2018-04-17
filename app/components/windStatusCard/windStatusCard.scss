@@ -1,15 +1,18 @@
+@import '../../sass/constants.scss';
+
 @function get-image-class($time) {
   @return url('../../img/#{$time}.jpg');
 }
 
 .wind-status-container {
-    font-family: 'Roboto Condensed', sans-serif;
-    box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
-    color: white;
+    @include status-card
     grid-row: 5 / 6;
+    grid-template: 70% 30% / 25% 50% 25%;
 
-    display: grid;
-    grid-template: 60% 40% / 25% 50% 25%;
+    @media (min-width: $break-width) {
+        grid-row: 1;
+        grid-column: 1 / 4;
+    }
 
     &.image-day {
         background: get-image-class(morning);
@@ -37,6 +40,11 @@
         span {
             font-size: 64px;
         }
+
+        @media (min-width: $break-width) {
+            grid-column: 2 / 4;
+            justify-self: flex-start;
+        }
     }
 
     .wind-direction {
@@ -45,6 +53,12 @@
 
         font-size: 64px;
         justify-self: center;
+
+        @media (min-width: $break-width) {
+            grid-row: 1/3;
+            grid-column: 1;
+            font-size: 86px;
+        }
     }
 
     .wind-description {
@@ -53,6 +67,11 @@
 
         font-size: 24px;
         justify-self: flex-start;
+
+        @media (min-width: $break-width) {
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
     }
 
     .wind-beaufort-score {
@@ -61,6 +80,10 @@
 
         font-size: 60px;
         justify-self: center;
+
+        @media (min-width: $break-width) {
+            visibility: hidden;
+        }
     }
 
 }

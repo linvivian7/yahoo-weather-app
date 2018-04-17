@@ -1,18 +1,18 @@
 @import '../../sass/constants.scss';
-@import url('https://fonts.googleapis.com/css?family=Lato|Nunito|Roboto+Condensed');
 
 .current-status-container {
-    font-family: 'Roboto Condensed', sans-serif;
+    @include status-card
     background-color: $text-color-sandstone;
     grid-row: 1;
-    box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
-    color: white;
-
-    display: grid;
     grid-template: 20% 15% 55% 10% / 28% 27% 45%;
     justify-content: center;
     justify-items: center;
     padding: 0 5px;
+
+    @media (min-width: $break-width) {
+        grid-row: 3;
+        grid-column: 1;
+    }
 
     .weather-icon {
         grid-column: 1;

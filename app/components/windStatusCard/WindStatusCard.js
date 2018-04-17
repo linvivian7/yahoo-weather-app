@@ -2,9 +2,10 @@ import React from 'react';
 import moment from 'moment';
 import classNames from 'classnames';
 
+import { getSunriseSunsetHours } from '../../utils/dateTime';
 import './windStatusCard.scss';
 
-const WindStatusCard = ({ wind, units, timezone }) => {
+const WindStatusCard = ({ astronomy, timezone, units, wind }) => {
     const {
         beaufortWindScore,
         direction,
@@ -21,20 +22,23 @@ const WindStatusCard = ({ wind, units, timezone }) => {
         'wi',
         `wi-wind-beaufort-${ Math.round(beaufortWindScore.grade) }`
     );
+    const { day, afternoon, night } = getSunriseSunsetHour(astronomy);
+    const currentHour = currentLocalTime.hours();
     const windContainerClasses= classNames(
-        'card',
         'wind-status-container',
         {
-            'image-day': currentLocalTime.hours() < 11 && currentLocalTime.hours() > 5,
-            'image-afternoon': currentLocalTime.hours() >= 11 && currentLocalTime.hours() < 17,
-            'image-night': currentLocalTime.hours() >= 17 || currentLocalTime.hours() <= 5
+            'image-day': currentHour < afternoon && currentHour > day,
+            'image-afternoon': currentHour >= afternoon && currentHour < night,
+            'image-night': currentHour >= night || currentHour <= day
         }
     );
+    const [distanceUnit, timeUnit] = units.split('/');
 
     return (
         <div className={ windContainerClasses }>
             <div className="wind-speed">
-                { `${Math.round(speed)} ` }<span><sup>km</sup>&frasl;<sub>h</sub></span>
+                { `${Math.round(speed)} ` }
+                <span><sup>{ `${distanceUnit}` }</sup>&frasl;<sub>{ `${timeUnit}` }</sub></span>
             </div>
             <div className="wind-direction">
                 <i className={ directionClasses }></i>
