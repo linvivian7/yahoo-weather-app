@@ -28,7 +28,6 @@ export default class ForecastPage extends React.Component {
     }
 
     _getForecastContainer(forecast) {
-        console.log(forecast);
         return (
             <ul className="forecast-page-container">
                 { this._getListItems(forecast) }

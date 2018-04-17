@@ -7,31 +7,25 @@ import {
 } from '../utils/query';
 import { sendLocationError } from '../utils/error';
 
-export const SAVE_WEATHER = 'SAVE_WEATHER';
-const _saveWeather = ({ data }) => ({
-    type: SAVE_WEATHER,
-    payload: data
-});
-
-export const SAVE_TIMEZONE = 'SAVE_TIMEZONE';
-const _saveTimezone = ({ data }) => ({
-    type: SAVE_TIMEZONE,
+export const SAVE_LOCATION_RESULTS = 'SAVE_LOCATION_RESULTS';
+const _saveLocationResults = (data) => ({
+    type: SAVE_LOCATION_RESULTS,
     payload: data
 });
 
 const onError = (dispatch) => dispatch(sendLocationError());
 
-function _getLocalTime(results) {
+function _getLocationResults(weatherResults) {
     return async (dispatch) => {
-        function onSuccess(response) {
-            dispatch(_saveTimezone(response));
+        function onSuccess(timeZoneResults, weatherResults) {
+            dispatch(_saveLocationResults({weatherResults, timeZoneResults}));
         }
 
         try {
-            const { lat, long } = results;
-            const response = await axios.get(getTimezoneUrl(lat, long));
+            const { item } = weatherResults;
+            const timeZoneResults = await axios.get(getTimezoneUrl(item.lat, item.long));
 
-            return onSuccess(response);
+            return onSuccess(timeZoneResults.data, weatherResults);
         } catch (error) {
             return onError(dispatch);
         }
@@ -41,16 +35,13 @@ function _getLocalTime(results) {
 export default function getWeatherData(searchLocation) {
     return async (dispatch) => {
         function onSuccess(response) {
-            const { item } = parseQueryResponse(response.data);
-
-            dispatch(_getLocalTime(item));
-            dispatch(_saveWeather(response));
+            dispatch(_getLocationResults(response));
         }
 
         try {
-            const response = await axios.get(getWeatherUrl(searchLocation));
+            const weatherResults = await axios.get(getWeatherUrl(searchLocation));
 
-            return onSuccess(response);
+            return onSuccess(parseQueryResponse(weatherResults.data));
         } catch (error) {
             return onError(dispatch);
         }

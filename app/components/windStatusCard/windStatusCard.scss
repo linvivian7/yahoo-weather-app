@@ -8,8 +8,8 @@
     color: white;
     grid-row: 5 / 6;
 
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template: 60% 40% / 25% 50% 25%;
 
     &.image-day {
         background: get-image-class(morning);
@@ -26,21 +26,41 @@
         background-size: cover;
     }
 
-    .half-inner-card {
-        padding: 0 25px;
-        font-size: 50px;
+    .wind-speed {
+        grid-row: 1;
+        grid-column: 1 / 4;
+
+        font-size: 100px;
+        justify-self: center;
+        align-self: flex-end;
+
+        span {
+            font-size: 64px;
+        }
     }
 
-    .third-inner-card {
-        padding: 0 25px;
-        font-size: 5vw;
+    .wind-direction {
+        grid-row: 2;
+        grid-column: 1;
+
+        font-size: 64px;
+        justify-self: center;
     }
 
-    .sunrise {
-        background-color: pink;
+    .wind-description {
+        grid-row: 2;
+        grid-column: 2;
+
+        font-size: 24px;
+        justify-self: flex-start;
     }
 
-    .sunset {
-        background-color: green;
+    .wind-beaufort-score {
+        grid-row: 2;
+        grid-column: 3;
+
+        font-size: 60px;
+        justify-self: center;
     }
+
 }

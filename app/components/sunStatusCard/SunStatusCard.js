@@ -20,10 +20,10 @@ export default class SunStatusCard extends React.PureComponent {
     componentDidMount() {
         this.interval = setInterval(function() {
             const currentTime = moment();
-            const currentLocalTime = currentTime.tz('Asia/Tokyo').format('h:mm A');
+            const currentLocalTime = currentTime.tz(this.props.timezone.timeZoneId).format('h:mm A');
 
             this.setState({ currentLocalTime });
-        }.bind(this), 2000);
+        }.bind(this), 100);
     }
 
     componentWillUnmount() {

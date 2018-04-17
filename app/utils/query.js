@@ -18,6 +18,7 @@ export const parseQueryResponse = ({query: { results }}) => {
         atmosphere,
         item,
         location,
+        units,
         wind
     } = results.channel;
 
@@ -25,6 +26,7 @@ export const parseQueryResponse = ({query: { results }}) => {
         astronomy,
         atmosphere,
         item,
+        units,
         location,
         wind
     };
