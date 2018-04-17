@@ -10,6 +10,14 @@
     display: grid;
     grid-template: 25% 50% 25% / 15% 70% 15%;
 
+    .current-time {
+        grid-column: 2;
+        grid-row: 2;
+
+        font-size: 50px;
+        justify-self: center;
+    }
+
     .sun-icon-wrapper {
         font-size: 32px;
 
@@ -26,18 +34,22 @@
         }
     }
 
-    .sunrise-text {
-        grid-column: 2;
-        grid-row: 1;
+    .sun-text-wrapper {
+        font-size: 24px;
 
-        padding-left: 12px;
-    }
+        &.sunrise-text {
+            grid-column: 2;
+            grid-row: 1;
 
-    .sunset-text {
-        grid-column: 2;
-        grid-row: 3;
+            padding-left: 12px;
+        }
 
-        justify-self: flex-end;
-        padding-right: 12px;
+        &.sunset-text {
+            grid-column: 2;
+            grid-row: 3;
+
+            justify-self: flex-end;
+            padding-right: 12px;
+        }
     }
 }

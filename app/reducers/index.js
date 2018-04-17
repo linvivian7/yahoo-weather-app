@@ -7,7 +7,7 @@ import { parseQueryResponse } from '../utils/query';
 import { getCountryCode } from '../utils/country';
 import { SAVE_TIMEZONE, SAVE_WEATHER } from '../actions';
 
-const searchTerm = (state = 'Tokyo, Japan', {type, payload}) => {
+const searchTerm = (state = 'Tokyo, JP', {type, payload}) => {
     let newState = state;
 
     if (type === SAVE_WEATHER) {
@@ -19,7 +19,7 @@ const searchTerm = (state = 'Tokyo, Japan', {type, payload}) => {
     return newState;
 };
 
-const timezone = (state = false, {type, payload}) => {
+const timezone = (state = { timeZoneId: 'Asia/Tokyo' }, {type, payload}) => {
     let newState = state;
 
     if (type === SAVE_TIMEZONE) {
