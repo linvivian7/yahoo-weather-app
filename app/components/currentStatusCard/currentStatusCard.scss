@@ -33,6 +33,11 @@
         justify-self: flex-start;
         padding-left: 15px;
         align-self: flex-end;
+        display: block;
+        max-width: 90%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     .date {
