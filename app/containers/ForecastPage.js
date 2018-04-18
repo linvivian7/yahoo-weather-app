@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Nav from '../components/nav';
+import Menu from '../components/menu';
 import ForecastCard from '../components/forecastCard';
 
 import { removeInitialLoader } from './WeatherHomePage';
@@ -13,18 +13,6 @@ export default class ForecastPage extends React.Component {
 
     shouldComponentUpdate(nextProps) {
         return nextProps.weatherInfo !== this.props.weatherInfo;
-    }
-
-    onHomePageLinkClick(e) {
-        e.preventDefault();
-
-        this.props.onHomePageLinkClick();
-    }
-
-    onForecastLinkClick(e) {
-        e.preventDefault();
-
-        this.props.onForecastLinkClick();
     }
 
     _getListItems(items, temperatureUnit) {
@@ -45,6 +33,8 @@ export default class ForecastPage extends React.Component {
         const {
             onChange,
             onSubmit,
+            onHomePageLinkClick,
+            onForecastLinkClick,
             searchTerm,
             temperatureUnit,
             weatherInfo
@@ -53,12 +43,13 @@ export default class ForecastPage extends React.Component {
 
         return (
             <div>
-                <Nav
-                    location={ searchTerm }
-                    onChange={ onChange }
-                    onSubmit={ onSubmit.bind(this, {location: searchTerm}, temperatureUnit) }
-                    onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }
-                    onForecastLinkClick={ this.onForecastLinkClick.bind(this) }
+                <Menu
+                    searchTerm={ searchTerm }
+                    onChange= { onChange }
+                    onSubmit= { onSubmit }
+                    temperatureUnit={ temperatureUnit }
+                    onHomePageLinkClick={ onHomePageLinkClick }
+                    onForecastLinkClick={ onForecastLinkClick }
                 />
                 { this._getForecastContainer(weatherInfo.item.forecast, temperatureUnit) }
             </div>

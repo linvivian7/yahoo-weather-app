@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Nav from '../components/nav';
+import Menu from '../components/menu';
 import CurrentStatusCard from '../components/currentStatusCard';
 import SunStatusCard from '../components/SunStatusCard';
 import WindStatusCard from '../components/WindStatusCard';
@@ -38,11 +38,14 @@ export default class WeatherHomePage extends React.PureComponent {
         const {
             onSubmit,
             searchTerm,
-            temperatureUnit
+            temperatureUnit,
+            weatherInfo
         } = this.props;
 
-        onSubmit({ location: searchTerm }, temperatureUnit );
-        removeInitialLoader();
+        if (!weatherInfo) {
+            onSubmit({ location: searchTerm }, temperatureUnit );
+            removeInitialLoader();
+        }
     }
 
     componentDidUpdate() {
@@ -55,23 +58,13 @@ export default class WeatherHomePage extends React.PureComponent {
         }
     }
 
-    onHomePageLinkClick(e) {
-        e.preventDefault();
-
-        this.props.onHomePageLinkClick();
-    }
-
-    onForecastLinkClick(e) {
-        e.preventDefault();
-
-        this.props.onForecastLinkClick();
-    }
-
     render() {
         const {
             searchTerm,
             onChange,
             onSubmit,
+            onHomePageLinkClick,
+            onForecastLinkClick,
             temperatureUnit,
             timezone,
             weatherInfo
@@ -89,14 +82,14 @@ export default class WeatherHomePage extends React.PureComponent {
                 units,
                 wind
             } = weatherInfo;
-
+            console.log('units passed in homepage', units.temperature);
             currentStatusCard = (
                 <CurrentStatusCard
                     atmosphere= { atmosphere }
                     condition={ item.condition }
                     onUnitToggleChange={ onSubmit }
                     searchTerm={ searchTerm }
-                    temperatureUnit={ temperatureUnit }
+                    units={ units }
                 />);
             sunStatusCard = (<SunStatusCard timezone={ timezone } astronomy={ astronomy } />);
             windStatusCard = (
@@ -111,12 +104,13 @@ export default class WeatherHomePage extends React.PureComponent {
 
         return (
             <div>
-                <Nav
-                    location= { searchTerm }
-                    onChange={ onChange }
-                    onSubmit={ onSubmit.bind(this, {location: searchTerm}, temperatureUnit) }
-                    onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }
-                    onForecastLinkClick={ this.onForecastLinkClick.bind(this) }
+                <Menu
+                    searchTerm={ searchTerm }
+                    onChange= { onChange }
+                    onSubmit= { onSubmit }
+                    temperatureUnit={ temperatureUnit }
+                    onHomePageLinkClick={ onHomePageLinkClick }
+                    onForecastLinkClick={ onForecastLinkClick }
                 />
                 <div className="page-container">
                     <div className="loader-wrapper"></div>

@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
 import { reducer as form } from 'redux-form';
-
 import beaufort from 'beaufort-scale';
+
+import { CELSIUS } from '../constants';
 import { getSearchTerm } from '../utils/query';
+import { getIsMetric } from '../utils/measurement';
 import { SAVE_LOCATION_RESULTS, SET_LOADING } from '../actions';
 
 const isLoading = (state = false, {type, payload}) => {
@@ -33,13 +35,13 @@ const timezone = (state = { timeZoneId: 'Asia/Tokyo' }, { type, payload }) => {
     return newState;
 };
 
-const temperatureUnit = (state = 'c', { type, payload }) => {
+const temperatureUnit = (state = CELSIUS, { type, payload }) => {
     let newState = state;
 
     if (type === SAVE_LOCATION_RESULTS) {
         const { units } = payload.weatherResults;
 
-        newState = units.temperature.toLowerCase();
+        newState = units.temperature;
     }
     return newState;
 };
@@ -48,8 +50,10 @@ const weatherInfo = (state = false, { type, payload }) => {
     let newState = state;
 
     if (type === SAVE_LOCATION_RESULTS) {
+        debugger;
         const weatherInfo = payload.weatherResults;
-        const isMetric = weatherInfo.units.speed === 'km/h';
+
+        const isMetric = getIsMetric(weatherInfo.units);
         const { speed } = weatherInfo.wind;
         const metricSpeed = isMetric ? speed  : speed / 0.62137;
         const beaufortWindScore = beaufort(metricSpeed);

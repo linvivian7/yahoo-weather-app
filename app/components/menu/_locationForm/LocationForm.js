@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import {Field, reduxForm} from 'redux-form';
 
-import {LOCATION_FORM_NAME} from '../../constants';
+import {LOCATION_FORM_NAME} from '../../../constants';
 
 import './locationForm.scss';
 

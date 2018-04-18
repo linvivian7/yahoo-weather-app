@@ -2,6 +2,9 @@ export const BASE_URL = '/';
 export const FORECAST_URL = '/forecast';
 export const LOCATION_FORM_NAME = 'locationForm';
 
+export const CELSIUS = 'C';
+export const FAHRENHEIT = 'F';
+
 export const COUNTRY_ISO_CODES = {
     'Afghanistan': 'AF',
     'Aland Islands': 'AX',

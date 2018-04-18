@@ -2,15 +2,19 @@ import React from 'react';
 import classNames from 'classnames';
 
 import { getDisplayDateTime } from '../../utils/dateTime';
+import { getIsMetric } from '../../utils/measurement';
+import { CELSIUS, FAHRENHEIT } from '../../constants';
+
 import './currentStatusCard.scss';
 
-const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTerm, temperatureUnit }) => {
+const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTerm, units }) => {
     const {
         code,
         date,
         temp
     } = condition;
-    const isFahrenheit = temperatureUnit === 'f';
+    const isMetric = getIsMetric(units);
+    console.log('currentStatusCard isMetric', isMetric);
     const weatherIconClasses = classNames(
         'wi',
         `wi-yahoo-${code}`
@@ -18,11 +22,12 @@ const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTe
     const temperatureIconClasses = classNames(
         'wi',
         {
-            'wi-celsius': !isFahrenheit,
-            'wi-fahrenheit': isFahrenheit
+            'wi-celsius': isMetric,
+            'wi-fahrenheit': !isMetric
         }
     );
-    const nextToggledTemperatureUnit = isFahrenheit ? 'c' : 'f';
+    const nextToggledTemperatureUnit = isMetric ? FAHRENHEIT : CELSIUS;
+    console.log('nextToggledTemperatureUnit', nextToggledTemperatureUnit);
 
     return (
         <div className="current-status-container">
@@ -49,7 +54,7 @@ const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTe
                     <label className="switch">
                         <input
                             type="checkbox"
-                            checked={ isFahrenheit }
+                            checked={ !isMetric }
                             onChange={ onUnitToggleChange.bind(this, {location: searchTerm}, nextToggledTemperatureUnit) }
                         />
                         <span className="slider round"></span>

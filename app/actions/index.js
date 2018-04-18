@@ -31,7 +31,6 @@ const onError = (dispatch) => {
 function _getLocationResults(weatherResults) {
     return async (dispatch) => {
         function onSuccess(timeZoneResults, weatherResults) {
-
             dispatch(_saveLocationResults({ weatherResults, timeZoneResults }));
 
             setTimeout(function() {
@@ -63,6 +62,8 @@ export default function getWeatherData(searchTerm, unit) {
             if (weatherInfo) {
                 lastUpdatedTime = weatherInfo.item.pubDate;
             }
+
+            console.log('shouldupdate', _shouldUpdateApp(searchTerm, lastUpdatedTime, temperatureUnit, response));
 
             if (_shouldUpdateApp(searchTerm, lastUpdatedTime, temperatureUnit, response)) {
                 dispatch(_getLocationResults(response));

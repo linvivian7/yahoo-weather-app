@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LocationForm from '../locationForm';
+import LocationForm from '../_locationForm';
 import './nav.scss';
 
 const Nav = ({ location, onChange, onSubmit, onHomePageLinkClick, onForecastLinkClick }) => (

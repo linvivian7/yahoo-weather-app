@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import { getLinkHandlers } from '../utils/link';
 import getWeatherData from '../actions';
-import { LOCATION_FORM_NAME } from '../constants';
+import { CELSIUS, LOCATION_FORM_NAME } from '../constants';
 import WeatherHomePage from './WeatherHomePage';
 
 const _mapStateToProps = (state) => state;
@@ -14,7 +14,9 @@ const _mapDispatchToProps = (dispatch) => ({
     onChange: () => {
         dispatch(stopSubmit(LOCATION_FORM_NAME, {}));
     },
-    onSubmit: ({ location }, unit = 'c') => {
+    onSubmit: ({ location }, unit = CELSIUS) => {
+        debugger;
+        console.log('unit on submit', unit);
         dispatch(getWeatherData(location, unit));
     }
 });
