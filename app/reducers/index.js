@@ -3,7 +3,7 @@ import { routerReducer as routing } from 'react-router-redux';
 import { reducer as form } from 'redux-form';
 
 import beaufort from 'beaufort-scale';
-import { getCountryCode } from '../utils/country';
+import { getSearchTerm } from '../utils/query';
 import { SAVE_LOCATION_RESULTS, SET_LOADING } from '../actions';
 
 const isLoading = (state = false, {type, payload}) => {
@@ -19,14 +19,7 @@ const searchTerm = (state = 'Tokyo, JP', { type, payload }) => {
     let newState = state;
 
     if (type === SAVE_LOCATION_RESULTS) {
-        const { location } = payload.weatherResults;
-        const countryCode = getCountryCode(location.country);
-
-        newState = location.city;
-
-        if (countryCode) {
-            newState = `${location.city}, ${countryCode}`;
-        }
+        newState = getSearchTerm(payload.weatherResults);
     }
     return newState;
 };
@@ -40,12 +33,26 @@ const timezone = (state = { timeZoneId: 'Asia/Tokyo' }, { type, payload }) => {
     return newState;
 };
 
+const temperatureUnit = (state = 'c', { type, payload }) => {
+    let newState = state;
+
+    if (type === SAVE_LOCATION_RESULTS) {
+        const { units } = payload.weatherResults;
+
+        newState = units.temperature.toLowerCase();
+    }
+    return newState;
+};
+
 const weatherInfo = (state = false, { type, payload }) => {
     let newState = state;
 
     if (type === SAVE_LOCATION_RESULTS) {
         const weatherInfo = payload.weatherResults;
-        const beaufortWindScore = beaufort(weatherInfo.wind.speed);
+        const isMetric = weatherInfo.units.speed === 'km/h';
+        const { speed } = weatherInfo.wind;
+        const metricSpeed = isMetric ? speed  : speed / 0.62137;
+        const beaufortWindScore = beaufort(metricSpeed);
 
         newState = {
             ...weatherInfo,
@@ -63,6 +70,7 @@ export default combineReducers({
     routing,
     isLoading,
     searchTerm,
+    temperatureUnit,
     timezone,
     weatherInfo
 });

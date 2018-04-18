@@ -1,11 +1,18 @@
 import axios from 'axios';
 
 import {
+    getSearchTerm,
     getTimezoneUrl,
     getWeatherUrl,
     parseQueryResponse
 } from '../utils/query';
 import { sendLocationError } from '../utils/error';
+
+const _shouldUpdateApp = (searchTerm, lastUpdatedTime, temperatureUnit, weatherResults) => (
+    (searchTerm !== getSearchTerm(weatherResults)) ||
+    (lastUpdatedTime !== weatherResults.item.pubDate) ||
+    (temperatureUnit !== weatherResults.units.temperature.toLowerCase())
+);
 
 export const SET_LOADING = 'SET_LOADING';
 export const setLoading = (isLoading) => ({type: SET_LOADING, payload: isLoading});
@@ -43,23 +50,28 @@ function _getLocationResults(weatherResults) {
     };
 }
 
-export default function getWeatherData(searchLocation, unit) {
+export default function getWeatherData(searchTerm, unit) {
     return async (dispatch, getState) => {
         function onSuccess(response) {
-            dispatch(_getLocationResults(response));
-            dispatch(setLoading(true));
+            const {
+                searchTerm,
+                temperatureUnit,
+                weatherInfo
+            } = getState();
+            let lastUpdatedTime;
+
+            if (weatherInfo) {
+                lastUpdatedTime = weatherInfo.item.pubDate;
+            }
+
+            if (_shouldUpdateApp(searchTerm, lastUpdatedTime, temperatureUnit, response)) {
+                dispatch(_getLocationResults(response));
+                dispatch(setLoading(true));
+            }
         }
 
         try {
-            let preferredUnit = unit;
-
-            if (!preferredUnit) {
-                let { weatherInfo: { units }} = getState();
-
-                preferredUnit = units.temperature.toLowerCase();
-            }
-
-            const weatherResults = await axios.get(getWeatherUrl(searchLocation, preferredUnit));
+            const weatherResults = await axios.get(getWeatherUrl(searchTerm, unit));
 
             return onSuccess(parseQueryResponse(weatherResults.data));
         } catch (error) {

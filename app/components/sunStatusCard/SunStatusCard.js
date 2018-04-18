@@ -6,7 +6,16 @@ import './sunStatusCard.scss';
 
 export default class SunStatusCard extends React.PureComponent {
 
-    state = { currentLocalTime: '' }
+    constructor(props) {
+        super(props);
+
+        const currentTime = moment();
+        const currentLocalTime = currentTime.tz(this.props.timezone.timeZoneId).format('h:mm A');
+
+        this.state = {
+            currentLocalTime
+        };
+    }
 
     componentDidMount() {
         this.interval = setInterval(function() {

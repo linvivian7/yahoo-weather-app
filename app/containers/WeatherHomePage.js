@@ -38,15 +38,8 @@ export default class WeatherHomePage extends React.PureComponent {
         const {
             onSubmit,
             searchTerm,
-            weatherInfo: {
-                units
-            }
+            temperatureUnit
         } = this.props;
-        let temperatureUnit = 'c';
-
-        if (units) {
-            temperatureUnit = units.temperature;
-        }
 
         onSubmit({ location: searchTerm }, temperatureUnit );
         removeInitialLoader();
@@ -79,6 +72,7 @@ export default class WeatherHomePage extends React.PureComponent {
             searchTerm,
             onChange,
             onSubmit,
+            temperatureUnit,
             timezone,
             weatherInfo
         } = this.props;
@@ -102,7 +96,7 @@ export default class WeatherHomePage extends React.PureComponent {
                     condition={ item.condition }
                     onUnitToggleChange={ onSubmit }
                     searchTerm={ searchTerm }
-                    units={ units }
+                    temperatureUnit={ temperatureUnit }
                 />);
             sunStatusCard = (<SunStatusCard timezone={ timezone } astronomy={ astronomy } />);
             windStatusCard = (
@@ -120,7 +114,7 @@ export default class WeatherHomePage extends React.PureComponent {
                 <Nav
                     location= { searchTerm }
                     onChange={ onChange }
-                    onSubmit={ onSubmit }
+                    onSubmit={ onSubmit.bind(this, {location: searchTerm}, temperatureUnit) }
                     onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }
                     onForecastLinkClick={ this.onForecastLinkClick.bind(this) }
                 />

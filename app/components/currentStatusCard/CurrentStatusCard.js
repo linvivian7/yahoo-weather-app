@@ -4,13 +4,13 @@ import classNames from 'classnames';
 import { getDisplayDateTime } from '../../utils/dateTime';
 import './currentStatusCard.scss';
 
-const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTerm, units }) => {
+const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTerm, temperatureUnit }) => {
     const {
         code,
         date,
         temp
     } = condition;
-    const isFahrenheit = units.temperature === 'F';
+    const isFahrenheit = temperatureUnit === 'f';
     const weatherIconClasses = classNames(
         'wi',
         `wi-yahoo-${code}`

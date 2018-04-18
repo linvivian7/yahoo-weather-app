@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import './forecastCard.scss';
 
-const ForecastCard = ({ item, index }) => {
+const ForecastCard = ({ item, index, temperatureUnit }) => {
     const {
         code,
         date,
@@ -20,6 +20,14 @@ const ForecastCard = ({ item, index }) => {
         'wi',
         `wi-yahoo-${code}`
     );
+    const isFahrenheit = temperatureUnit === 'f';
+    const temperatureIconClasses = classNames(
+        'wi',
+        {
+            'wi-celsius': !isFahrenheit,
+            'wi-fahrenheit': isFahrenheit
+        }
+    );
 
     return (
         <div className={ forecastCardClasses }>
@@ -30,10 +38,10 @@ const ForecastCard = ({ item, index }) => {
                 <i className={ weatherIconClasses }></i>
             </div>
             <div className="temperature-hi">
-                <i className="wi wi-direction-up"></i>{ high }<i className="wi wi-celsius"></i>
+                <i className="wi wi-direction-up"></i>{ high }<i className={ temperatureIconClasses }></i>
             </div>
             <div className="temperature-low">
-                <i className="wi wi-direction-down"></i>{ low }<i className="wi wi-celsius"></i>
+                <i className="wi wi-direction-down"></i>{ low }<i className={ temperatureIconClasses }></i>
             </div>
             <div className="date">
                 <div>{ `${ month } ${ day } `}</div>

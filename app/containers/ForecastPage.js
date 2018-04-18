@@ -8,13 +8,6 @@ import { removeInitialLoader } from './WeatherHomePage';
 export default class ForecastPage extends React.Component {
 
     componentDidMount() {
-        const {
-            onSubmit,
-            searchTerm
-        } = this.props;
-
-        onSubmit({location: searchTerm});
-
         removeInitialLoader();
     }
 
@@ -34,16 +27,16 @@ export default class ForecastPage extends React.Component {
         this.props.onForecastLinkClick();
     }
 
-    _getListItems(items) {
+    _getListItems(items, temperatureUnit) {
         return items.map((item, index) => (
-            <ForecastCard key={ `forecast${item.date}` } item={ item } index={ index } />
+            <ForecastCard key={ `forecast${item.date}` } item={ item } index={ index } temperatureUnit={ temperatureUnit } />
         ));
     }
 
-    _getForecastContainer(forecast) {
+    _getForecastContainer(forecast, temperatureUnit) {
         return (
             <ul className="forecast-page-container">
-                { this._getListItems(forecast) }
+                { this._getListItems(forecast, temperatureUnit) }
             </ul>
         );
     }
@@ -53,19 +46,21 @@ export default class ForecastPage extends React.Component {
             onChange,
             onSubmit,
             searchTerm,
+            temperatureUnit,
             weatherInfo
         } = this.props;
+
 
         return (
             <div>
                 <Nav
                     location={ searchTerm }
                     onChange={ onChange }
-                    onSubmit={ onSubmit }
+                    onSubmit={ onSubmit.bind(this, {location: searchTerm}, temperatureUnit) }
                     onHomePageLinkClick={ this.onHomePageLinkClick.bind(this) }
                     onForecastLinkClick={ this.onForecastLinkClick.bind(this) }
                 />
-                { this._getForecastContainer(weatherInfo.item.forecast) }
+                { this._getForecastContainer(weatherInfo.item.forecast, temperatureUnit) }
             </div>
         );
     }
