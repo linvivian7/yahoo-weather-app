@@ -1,18 +1,25 @@
 @import '../../sass/constants.scss';
 
 @for $i from 0 through 9 {
-    $rowstart: 1 + 2*$i;
+    $rowstart: 1 + 2 * $i;
+    $opacity: 1 - .05 * $i;
 
     .forecast-container.forecast-container-#{$i} {
         grid-row-start: $rowstart;
+        background-color: rgba(106,177,135, $opacity);
     }
 }
 
 .forecast-container {
-    @include status-card
-    background-color: $text-color-lagoon;
-    font-size: 5vw;
+    box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
+    color: white;
+    display: grid;
+    font-family: $font-family-primary;
+    margin-bottom: 15px 0;
+    align-items: center;
 
+
+    font-size: 3vmax;
     grid-template: 100% / 5% repeat(5, 1fr);
     justify-content: center;
     text-transform: uppercase;
@@ -35,8 +42,8 @@
     }
 
     .date {
-        font-size: 4vw;
         grid-column: 6;
         justify-self: flex-end;
+        text-align: center;
     }
 }

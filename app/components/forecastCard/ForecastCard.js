@@ -30,10 +30,10 @@ const ForecastCard = ({ item, index }) => {
                 <i className={ weatherIconClasses }></i>
             </div>
             <div className="temperature-hi">
-                { high }<i className="wi wi-celsius"></i>
+                { high }<i className="wi wi-celsius"></i> { ' Hi ' }
             </div>
             <div className="temperature-low">
-                { low }<i className="wi wi-celsius"></i>
+                { low }<i className="wi wi-celsius"></i>{ ' Lo ' }
             </div>
             <div className="date">
                 <div>{ `${ month } ${ day } `}</div>

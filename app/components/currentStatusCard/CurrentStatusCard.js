@@ -27,12 +27,13 @@ const CurrentStatusCard = ({ atmosphere, condition, searchTerm }) => {
                 { getDisplayDateTime(date) }
             </div>
             <div className="temperature-wrapper">
-                <span> { `${temp}` }<i className="wi wi-degrees"></i></span>
+                <span> { `${temp}` }<i className="wi wi-celsius"></i></span>
             </div>
-            <div className="divider" />
             <div className="humidity-wrapper">
-                <span> { `${atmosphere.humidity}` }</span>
-                <i className="wi wi-humidity"></i>
+                <span> { `${atmosphere.humidity}` }<i className="wi wi-humidity"></i></span>
+            </div>
+            <div className="barometer-wrapper">
+                <span> { Math.round(atmosphere.visibility) }<i className="fa fas fa-eye"></i></span>
             </div>
         </div>
     );

@@ -4,52 +4,51 @@
     position: relative;
 
     .form__location-input {
-        border: 2px solid #aaa;
+        width: 100%;
+        border: 2px solid $color-grey;
         border-radius: 4px;
         box-sizing: border-box;
-        font-size: 12px;
-        font-family: 'Open Sans', sans-serif;
-        margin: 8px 0;
         outline: none;
+
+        font-family: $font-family-nav;
+        font-size: $font-size-x-small;
+
+        margin: 8px 0;
         padding: 8px 40px 8px 8px;
+
         text-align: center;
         text-overflow: ellipsis;
         transition: 0.3s;
-        width: 100%;
+
+        + .form__btn {
+            top: 8px;
+            right: 0;
+            position: absolute;
+
+            border: none;
+            background: none;
+            font: inherit;
+            color: $color-lagoon;
+            outline: inherit;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
         &:focus {
-            border-color: $temp-hover-color;
-            box-shadow: 0 0 8px 0 $temp-hover-color;
+            border-color: $color-lagoon;
         }
-    }
 
-    .form__location-input--error {
-        border: 2px solid red;
+        &.form__location-input--error {
+            border-color: $color-burnt-orange;
 
-        &:focus {
-            border-color: red;
-            box-shadow: 0 0 8px 0 red;
+            + .form__btn{
+                color: $color-grey;
+            }
+
+            &:focus {
+                border-color: $color-burnt-orange;
+            }
         }
-    }
-
-    .form__btn {
-        position: absolute;
-        right: 0;
-        top: 8px;
-        transition: 0.3s;
-        background: none;
-        color: inherit;
-        border: none;
-        font: inherit;
-        cursor: pointer;
-        outline: inherit;
-    }
-
-    .form__location-input + .form__btn {
-        color: $temp-hover-color;
-    }
-
-    .form__location-input + .form__btn--disabled {
-        color: gray;
     }
 }

@@ -1,19 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 $break-width: 768px;
-$temp-hover-color: #2196F3;
 
-$text-color-sandstone: #F4CC70;
-$text-color-burnt-orange: #DE7A22;
-$text-color-sea: #20948B;
-$text-color-lagoon: #6AB187;
+$color-grey: #AAA;
+$color-sunrise: #EAECC6;
+$color-sandstone: #F4CC70;
+$color-burnt-orange: #DE7A22;
+$color-lagoon: #6AB187;
+$color-sea: #20948B;
 
 $font-family-primary: 'Roboto Condensed', sans-serif;
 $font-family-nav: 'Open Sans', sans-serif;
 
-$font-size-small: 16px;
-$font-size-medium: 24px;
-$font-size-med-large: 60px;
+$font-size-x-small: 12px;
+$font-size-small: 3vw;
+$font-size-medium: 4vw;
+$font-size-med-large: 64px;
 $font-size-large: 96px;
 $font-size-x-large: 112px;
 
@@ -41,4 +43,8 @@ $margin-large: 48px;
     font-family: $font-family-primary;
     margin-bottom: 15px 0;
     align-items: center;
+
+    @media (min-width: $break-width) {
+        padding: 1em;
+    }
 }

@@ -4,11 +4,11 @@
     @include status-card
     grid-row: 1;
 
-    grid-template: 20% 15% 55% 10% / 28% 27% 45%;
+    grid-template: 20% 17% 55% 8% / 16% repeat(5, 1fr);
     justify-content: center;
     justify-items: center;
 
-    background-color: $text-color-sandstone;
+    background-color: $color-sandstone;
     padding: 0 $padding-x-small;
 
     @media (min-width: $break-width) {
@@ -20,14 +20,19 @@
         grid-column: 1;
         grid-row: 1 / 3;
 
-        color: $text-color-burnt-orange;
-        font-size: $icon-size-small;
+        color: $color-burnt-orange;
+        font-size: 7vw;
         padding-top: $padding-x-small;
+
+        @media (min-width: $break-width) {
+            grid-row: 1 / 3;
+            grid-column: 1 / 3;
+        }
     }
 
     .location-wrapper {
         grid-row: 1;
-        grid-column: 2 / 4;
+        grid-column: 2 / 7;
 
         max-width: 90%;
         overflow: hidden;
@@ -35,7 +40,7 @@
         justify-self: flex-start;
         align-self: flex-end;
 
-        font-size: $font-size-medium;
+        font-size: 5vw;
         text-transform: uppercase;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -43,77 +48,82 @@
         padding-left: $padding-small;
         border-left: 1px solid white;
         border-width: medium;
+
+        @media (min-width: $break-width) {
+            grid-column: 3 / 7;
+        }
     }
 
     .date-wrapper {
         grid-row: 2;
-        grid-column: 2 / 4;
+        grid-column: 2 / 7;
 
         justify-self: flex-start;
         align-self: flex-start;
-        font-size: $font-size-small;
+        font-size: 3vw;
         font-weight: lighter;
 
         border-left: 1px solid white;
         border-width: medium;
 
         padding-left: $padding-small;
+
+        @media (min-width: $break-width) {
+            grid-column: 3 / 7;
+        }
     }
 
     .temperature-wrapper {
-        grid-row: 3 / 5;
+        grid-row: 3;
         grid-column: 1 / 3;
 
         text-align: center;
-
-        font-size: $font-size-x-large;
-        padding-right: $padding-medium;
+        font-size: 11vmax;
 
         i {
-            color: $text-color-lagoon;
-            font-size: $icon-size-x-large;
-            padding-left: $padding-small;
+            color: $color-lagoon;
+            font-size: 9vw;
+            padding-left: $padding-x-small;
+        }
+
+        @media (max-width: 360px) {
+            grid-column: 1 / 4;
         }
     }
 
     .humidity-wrapper {
-        grid-column: 3;
-        grid-row: 3 / 5;
+        grid-row: 3;
+        grid-column: 3 / 5;
         display: flex;
 
-        justify-self: flex-start;
-        font-size: $font-size-large;
+        font-size: 11vmax;
 
         i {
-            align-self: center;
-
-            color: $text-color-lagoon;
-            font-size: $icon-size-small;
+            color: $color-lagoon;
+            font-size: 6vw;
             margin-left: $margin-x-small;
+        }
+
+        @media (max-width: 360px) {
+            grid-column: 4 / 7;
         }
     }
 
-    .divider {
-        grid-column: 1/3;
+    .barometer-wrapper {
         grid-row: 3;
+        grid-column: 5 / 7;
+        display: flex;
 
-        height: 102%;
-        width: 40%;
+        font-size: 11vmax;
 
-        border-top: 1px solid white;
-        border-width: medium;
+        i {
+            color: $color-lagoon;
+            font-size: 6vw;
+            margin-left: $margin-x-small;
+        }
 
-        margin-bottom: $margin-med-large;
-        margin-left: 22px;
-
-        -moz-transform: rotate(135deg);
-        -o-transform: rotate(135deg);
-        -webkit-transform: rotate(135deg);
-        -ms-transform: rotate(135deg);
-        transform: rotate(112deg);
-
-        @media (min-width: $break-width) {
-            margin-left: (-$margin-small)
+        @media (max-width: 360px) {
+            display: none;
         }
     }
 }

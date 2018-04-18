@@ -7,7 +7,11 @@ import WindStatusCard from '../components/WindStatusCard';
 
 const _removeInitialLoader = () => {
     setTimeout(function() {
-        document.getElementsByClassName('loader-wrapper')[0].remove();
+        let loader = document.getElementsByClassName('loader-wrapper');
+
+        if (loader && loader[0]) {
+            loader[0].remove();
+        }
     }, 500);
 };
 

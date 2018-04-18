@@ -8,9 +8,10 @@
 .wind-status-container {
     @include status-card
     grid-row: 5 / 6;
-    grid-template: 70% 30% / 25% 50% 25%;
+    grid-template: 42% 58% / 25% 50% 25%;
 
     @media (min-width: $break-width) {
+        grid-template: 70% 30% / 25% 50% 25%;
         grid-row: 1;
         grid-column: 1 / 4;
     }
@@ -28,60 +29,68 @@
     }
 
     .wind-speed-wrapper {
-        grid-row: 1;
+        grid-row: 2;
         grid-column: 1 / 4;
 
         justify-self: center;
         align-self: flex-end;
 
-        font-size: $font-size-x-large;
+        font-size: 8vmax;
 
         span {
             font-size: $font-size-med-large;
         }
 
         @media (min-width: $break-width) {
+            grid-row: 1;
             grid-column: 2 / 4;
             justify-self: flex-start;
         }
     }
 
     .wind-direction-icon-wrapper {
-        grid-row: 2;
+        grid-row: 1;
         grid-column: 1;
 
         font-size: $icon-size-medium;
         justify-self: center;
 
         @media (min-width: $break-width) {
-            grid-row: 1/3;
+            grid-row: 1 / 3;
             grid-column: 1;
             font-size: 86px;
         }
     }
 
     .wind-description-wrapper {
-        grid-row: 2;
+        grid-row: 1;
         grid-column: 2;
 
-        justify-self: flex-start;
-        font-size: $font-size-medium;
+        justify-self: center;
+        font-size: 6vmin;
         text-transform: uppercase;
 
         @media (min-width: $break-width) {
+            grid-column: 2 / 4;
+            grid-row: 2;
             align-self: flex-start;
+            justify-self: flex-start;
         }
     }
 
     .wind-beaufort-icon-wrapper {
-        grid-row: 2;
+        grid-row: 1;
         grid-column: 3;
 
         font-size: $icon-size-medium;
         justify-self: center;
 
         @media (min-width: $break-width) {
+            grid-row: 2;
             visibility: hidden;
+        }
+        @media (max-width: 360px) {
+            display: none;
         }
     }
 

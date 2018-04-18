@@ -1,19 +1,44 @@
 @import '../../sass/constants.scss';
 
-.sticky {
-    background-color: #fff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+@mixin nav__list-item {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    list-style: none;
+
     line-height: 30px;
-    position: fixed;
-    top: 0;
+    padding: $padding-x-small;
+    cursor: pointer;
+
+    &:hover a {
+        font-weight: bold;
+        color: $color-lagoon;
+    }
+
+    a {
+        color: #6E7982;
+        text-decoration: none;
+    }
+
+    @media (min-width: $break-width) {
+        padding: 15px;
+    }
 }
 
-.nav {
-    font-size: 16px;
+.sticky-nav {
+    top: 0;
     left: 0;
-    letter-spacing: 2px;
-    transition: all 0.5s ease;
+    position: fixed;
     width: 100%;
+
+    letter-spacing: 2px;
+    line-height: 30px;
+
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    font-size: $font-size-x-small;
+
+    transition: all 0.5s ease;
     z-index: 100;
 
     transition-property: background-color, box-shadow, line-height, height;
@@ -24,60 +49,42 @@
     -webkit-transition-duration: 0.3s;
 
     .navbar {
-        align-items: center;
         display: flex;
-        margin: 0;
-        text-transform: uppercase;
-
         flex-direction: column;
         justify-content: space-around;
+        align-items: center;
+
+        margin: 0;
+        padding: 0 $padding-small;
+
+        text-transform: uppercase;
+
         transition: transform 150ms;
         -webkit-transition: -webkit-transform 150ms;
-        padding: 0 15px;
 
         @media (min-width: $break-width) {
-            justify-content: stretch;
             flex-direction: row;
+            justify-content: stretch;
         }
 
-        .forecast {
-            padding-bottom: 0;
-        }
-
-        .ul__li--location-form {
-            flex-grow: 1;
-            padding: 0;
-        }
-
-        .nav__list-item {
-            cursor: pointer;
-            display: inline-block;
-            line-height: 30px;
-            list-style: none;
-            padding: 5px;
-            text-align: center;
-            width: 100%;
-
-            &:hover a {
-                font-weight: bold;
-                color: $temp-hover-color;
-            }
-
-            a {
-                color: #6E7982;
-                text-decoration: none;
-            }
-            @media (min-width: $break-width) {
-                padding: 15px;
-            }
-        }
-
-        .current {
+        .nav__list-item--current {
+            @include nav__list-item
             margin-top: 10px;
 
             @media (min-width: $break-width) {
                 margin-top: 0;
             }
+        }
+
+        .nav__list-item--forecast {
+            @include nav__list-item
+            padding-bottom: 0;
+        }
+
+        .nav__list-item-location-form {
+            @include nav__list-item
+            flex-grow: 1;
+            padding: 0;
         }
     }
 }

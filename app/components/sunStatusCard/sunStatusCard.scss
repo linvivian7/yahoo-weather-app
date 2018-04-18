@@ -29,15 +29,17 @@
 .sun-status-container {
     @include status-card
     grid-row: 3;
-    grid-template: 25% 50% 25% / 15% 70% 15%;
-    background: linear-gradient(-197deg, $text-color-burnt-orange, $text-color-sandstone, $text-color-lagoon, $text-color-sea);
+    grid-template: 25% 50% 25% / 20% 60% 20%;
+
+    background: $color-sea;
+    background: -webkit-linear-gradient(160deg, $color-sea, $color-sunrise);
+    background: linear-gradient(160deg, $color-sunrise, $color-sea);
 
     @media (min-width: $break-width) {
         grid-column: 3;
-        grid-template: 25% 50% 25% / 40% 60%;
+        grid-template: 25% 50% 25% / 30% 70%;
 
         align-items: center;
-        background: linear-gradient(-180deg, $text-color-burnt-orange, $text-color-sandstone, $text-color-lagoon, $text-color-sea);
     }
 
     .current-time-wrapper {
@@ -45,7 +47,7 @@
         grid-row: 2;
         grid-column: 2;
 
-        font-size: $font-size-med-large;
+        font-size: 5vmax;
         justify-self: center;
     }
 
