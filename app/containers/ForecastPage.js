@@ -3,7 +3,20 @@ import React from 'react';
 import Nav from '../components/nav';
 import ForecastCard from '../components/forecastCard';
 
+import { removeInitialLoader } from './WeatherHomePage';
+
 export default class ForecastPage extends React.Component {
+
+    componentDidMount() {
+        const {
+            onSubmit,
+            searchTerm
+        } = this.props;
+
+        onSubmit({location: searchTerm});
+
+        removeInitialLoader();
+    }
 
     shouldComponentUpdate(nextProps) {
         return nextProps.weatherInfo !== this.props.weatherInfo;

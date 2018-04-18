@@ -5,22 +5,32 @@ import CurrentStatusCard from '../components/currentStatusCard';
 import SunStatusCard from '../components/SunStatusCard';
 import WindStatusCard from '../components/WindStatusCard';
 
-const _removeInitialLoader = () => {
-    setTimeout(function() {
-        let loader = document.getElementsByClassName('loader-wrapper');
+const _getLoader = () => document.getElementsByClassName('loader-wrapper')[0];
 
-        if (loader && loader[0]) {
-            loader[0].remove();
+export const removeInitialLoader = () => {
+    setTimeout(function() {
+        let loader = _getLoader();
+
+        if (loader) {
+            loader.remove();
         }
     }, 500);
 };
 
 const _showLoader = () => {
-    document.getElementsByClassName('loader-wrapper')[0].style.display = 'initial';
+    let loader = _getLoader();
+
+    if (loader) {
+        loader.style.display = 'initial';
+    }
 };
 
 const _hideLoader = () => {
-    document.getElementsByClassName('loader-wrapper')[0].style.display = 'none';
+    let loader = _getLoader();
+
+    if (loader) {
+        loader.style.display = 'none';
+    }
 };
 
 export default class WeatherHomePage extends React.PureComponent {
@@ -32,7 +42,7 @@ export default class WeatherHomePage extends React.PureComponent {
 
         onSubmit({location: searchTerm});
 
-        _removeInitialLoader();
+        removeInitialLoader();
     }
 
     componentDidUpdate() {
