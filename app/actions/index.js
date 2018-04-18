@@ -43,15 +43,23 @@ function _getLocationResults(weatherResults) {
     };
 }
 
-export default function getWeatherData(searchLocation) {
-    return async (dispatch) => {
+export default function getWeatherData(searchLocation, unit) {
+    return async (dispatch, getState) => {
         function onSuccess(response) {
             dispatch(_getLocationResults(response));
             dispatch(setLoading(true));
         }
 
         try {
-            const weatherResults = await axios.get(getWeatherUrl(searchLocation));
+            let preferredUnit = unit;
+
+            if (!preferredUnit) {
+                let { weatherInfo: { units }} = getState();
+
+                preferredUnit = units.temperature.toLowerCase();
+            }
+
+            const weatherResults = await axios.get(getWeatherUrl(searchLocation, preferredUnit));
 
             return onSuccess(parseQueryResponse(weatherResults.data));
         } catch (error) {

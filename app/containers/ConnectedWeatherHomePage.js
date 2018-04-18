@@ -14,8 +14,8 @@ const _mapDispatchToProps = (dispatch) => ({
     onChange: () => {
         dispatch(stopSubmit(LOCATION_FORM_NAME, {}));
     },
-    onSubmit: ({ location }) => {
-        dispatch(getWeatherData(location));
+    onSubmit: ({ location }, unit = 'c') => {
+        dispatch(getWeatherData(location, unit));
     }
 });
 

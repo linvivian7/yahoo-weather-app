@@ -5,6 +5,16 @@ import classNames from 'classnames';
 import { getSunriseSunsetHours } from '../../utils/dateTime';
 import './windStatusCard.scss';
 
+const _getWindUnitWrapper = (distanceUnit, timeUnit) => {
+    let windUnitWrapper = (<span>{ `${distanceUnit}` }</span>);
+
+    if (timeUnit) {
+        windUnitWrapper = (<span><sup>{ `${distanceUnit}` }</sup>&frasl;<sub>{ `${timeUnit}` }</sub></span>);
+    }
+
+    return windUnitWrapper;
+};
+
 const WindStatusCard = ({ astronomy, timezone, units, wind }) => {
     const {
         beaufortWindScore,
@@ -39,7 +49,7 @@ const WindStatusCard = ({ astronomy, timezone, units, wind }) => {
         <div className={ windContainerClasses }>
             <div className="wind-speed-wrapper">
                 { `${Math.round(speed)} ` }
-                <span><sup>{ `${distanceUnit}` }</sup>&frasl;<sub>{ `${timeUnit}` }</sub></span>
+                { _getWindUnitWrapper(distanceUnit, timeUnit) }
             </div>
             <div className="wind-direction-icon-wrapper">
                 <i className={ directionClasses }></i>
