@@ -1,7 +1,8 @@
 @import '../../sass/constants.scss';
 
-@function get-image-class($time) {
-  @return url('../../img/#{$time}.jpg');
+@mixin background-image($time) {
+    background: url('../../img/#{$time}.jpg');
+    background-size: cover;
 }
 
 .wind-status-container {
@@ -15,30 +16,28 @@
     }
 
     &.image-day {
-        background: get-image-class(morning);
-        background-size: cover;
+        @include background-image(morning);
     }
 
     &.image-afternoon {
-        background: get-image-class(afternoon);
-        background-size: cover;
+        @include background-image(afternoon);
     }
 
     &.image-night {
-        background: get-image-class(night);
-        background-size: cover;
+        @include background-image(night);
     }
 
-    .wind-speed {
+    .wind-speed-wrapper {
         grid-row: 1;
         grid-column: 1 / 4;
 
-        font-size: 100px;
         justify-self: center;
         align-self: flex-end;
 
+        font-size: $font-size-x-large;
+
         span {
-            font-size: 64px;
+            font-size: $font-size-med-large;
         }
 
         @media (min-width: $break-width) {
@@ -47,11 +46,11 @@
         }
     }
 
-    .wind-direction {
+    .wind-direction-icon-wrapper {
         grid-row: 2;
         grid-column: 1;
 
-        font-size: 64px;
+        font-size: $icon-size-medium;
         justify-self: center;
 
         @media (min-width: $break-width) {
@@ -61,24 +60,24 @@
         }
     }
 
-    .wind-description {
+    .wind-description-wrapper {
         grid-row: 2;
         grid-column: 2;
 
-        font-size: 24px;
         justify-self: flex-start;
+        font-size: $font-size-medium;
+        text-transform: uppercase;
 
         @media (min-width: $break-width) {
-            text-transform: uppercase;
             align-self: flex-start;
         }
     }
 
-    .wind-beaufort-score {
+    .wind-beaufort-icon-wrapper {
         grid-row: 2;
         grid-column: 3;
 
-        font-size: 60px;
+        font-size: $icon-size-medium;
         justify-self: center;
 
         @media (min-width: $break-width) {

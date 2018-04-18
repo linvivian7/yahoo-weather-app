@@ -17,20 +17,20 @@ const CurrentStatusCard = ({ atmosphere, condition, searchTerm }) => {
 
     return (
         <div className="current-status-container">
-            <div className="weather-icon">
+            <div className="weather-icon-wrapper">
                 <i className={ weatherIconClasses }></i>
             </div>
-            <div className="location">
+            <div className="location-wrapper">
                 { searchTerm }
             </div>
-            <div className="date">
+            <div className="date-wrapper">
                 { getDisplayDateTime(date) }
             </div>
-            <div className="temperature">
+            <div className="temperature-wrapper">
                 <span> { `${temp}` }<i className="wi wi-degrees"></i></span>
             </div>
             <div className="divider" />
-            <div className="humidity">
+            <div className="humidity-wrapper">
                 <span> { `${atmosphere.humidity}` }</span>
                 <i className="wi wi-humidity"></i>
             </div>

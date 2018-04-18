@@ -37,17 +37,17 @@ const WindStatusCard = ({ astronomy, timezone, units, wind }) => {
 
     return (
         <div className={ windContainerClasses }>
-            <div className="wind-speed">
+            <div className="wind-speed-wrapper">
                 { `${Math.round(speed)} ` }
                 <span><sup>{ `${distanceUnit}` }</sup>&frasl;<sub>{ `${timeUnit}` }</sub></span>
             </div>
-            <div className="wind-direction">
+            <div className="wind-direction-icon-wrapper">
                 <i className={ directionClasses }></i>
             </div>
-            <div className="wind-description">
+            <div className="wind-description-wrapper">
                 { beaufortWindScore.desc }
             </div>
-            <div className="wind-beaufort-score">
+            <div className="wind-beaufort-icon-wrapper">
                 <i className={ beaufortClasses }></i>
             </div>
         </div>

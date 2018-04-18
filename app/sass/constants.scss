@@ -11,6 +11,29 @@ $text-color-lagoon: #6AB187;
 $font-family-primary: 'Roboto Condensed', sans-serif;
 $font-family-nav: 'Open Sans', sans-serif;
 
+$font-size-small: 16px;
+$font-size-medium: 24px;
+$font-size-med-large: 60px;
+$font-size-large: 96px;
+$font-size-x-large: 112px;
+
+$icon-size-x-small: 32px;
+$icon-size-small: 48px;
+$icon-size-medium: 60px;
+$icon-size-x-large: 120px;
+
+$padding-x-small: 4px;
+$padding-small: 16px;
+$padding-medium: 24px;
+$padding-med-large: 36px;
+$padding-large: 48px;
+
+$margin-x-small: 4px;
+$margin-small: 16px;
+$margin-medium: 24px;
+$margin-med-large: 36px;
+$margin-large: 48px;
+
 @mixin status-card {
     box-shadow: 0 2.5px 8px 0 rgba(0,0,0,.2);
     color: white;
