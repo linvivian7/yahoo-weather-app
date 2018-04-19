@@ -13,11 +13,11 @@ const _onForecastLinkClick = (onForecastLinkClick, e) => {
     onForecastLinkClick();
 };
 
-const Menu = ({ searchTerm, onChange, onSubmit, onHomePageLinkClick, onForecastLinkClick, temperatureUnit }) => (
+const Menu = ({ searchTerm, onChange, onSubmit, onHomePageLinkClick, onForecastLinkClick }) => (
     <Nav
         location={ searchTerm }
         onChange={ onChange }
-        onSubmit={ onSubmit.bind(this, {location: searchTerm}, temperatureUnit) }
+        onSubmit={ onSubmit }
         onHomePageLinkClick={ _onHomePageLinkClick.bind(null, onHomePageLinkClick) }
         onForecastLinkClick={ _onForecastLinkClick.bind(null, onForecastLinkClick) }
     />

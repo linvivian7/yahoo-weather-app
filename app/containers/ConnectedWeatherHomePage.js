@@ -4,20 +4,27 @@ import { connect } from 'react-redux';
 
 import { getLinkHandlers } from '../utils/link';
 import getWeatherData from '../actions';
-import { CELSIUS, LOCATION_FORM_NAME } from '../constants';
+import { LOCATION_FORM_NAME } from '../constants';
 import WeatherHomePage from './WeatherHomePage';
 
-const _mapStateToProps = (state) => state;
+const _mapStateToProps = ({ isLoading, searchTerm, timezone, temperatureUnit, weatherInfo }) => ({
+    searchTerm,
+    timezone,
+    temperatureUnit,
+    isLoading,
+    weatherInfo
+});
 
 const _mapDispatchToProps = (dispatch) => ({
     ...getLinkHandlers(dispatch),
+    onUnitToggleChange: (searchTerm, unit) => {
+        dispatch(getWeatherData(searchTerm, unit));
+    },
     onChange: () => {
         dispatch(stopSubmit(LOCATION_FORM_NAME, {}));
     },
-    onSubmit: ({ location }, unit = CELSIUS) => {
-        debugger;
-        console.log('unit on submit', unit);
-        dispatch(getWeatherData(location, unit));
+    onSubmit: ({ location }) => {
+        dispatch(getWeatherData(location));
     }
 });
 

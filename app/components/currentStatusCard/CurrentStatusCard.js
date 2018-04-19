@@ -14,7 +14,6 @@ const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTe
         temp
     } = condition;
     const isMetric = getIsMetric(units);
-    console.log('currentStatusCard isMetric', isMetric);
     const weatherIconClasses = classNames(
         'wi',
         `wi-yahoo-${code}`
@@ -27,7 +26,6 @@ const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTe
         }
     );
     const nextToggledTemperatureUnit = isMetric ? FAHRENHEIT : CELSIUS;
-    console.log('nextToggledTemperatureUnit', nextToggledTemperatureUnit);
 
     return (
         <div className="current-status-container">
@@ -55,7 +53,7 @@ const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTe
                         <input
                             type="checkbox"
                             checked={ !isMetric }
-                            onChange={ onUnitToggleChange.bind(this, {location: searchTerm}, nextToggledTemperatureUnit) }
+                            onChange={ onUnitToggleChange.bind(null, searchTerm, nextToggledTemperatureUnit) }
                         />
                         <span className="slider round"></span>
                     </label>

@@ -5,33 +5,7 @@ import CurrentStatusCard from '../components/currentStatusCard';
 import SunStatusCard from '../components/SunStatusCard';
 import WindStatusCard from '../components/WindStatusCard';
 
-const _getLoader = () => document.getElementsByClassName('loader-wrapper')[0];
-
-export const removeInitialLoader = () => {
-    setTimeout(function() {
-        let loader = _getLoader();
-
-        if (loader) {
-            loader.remove();
-        }
-    }, 500);
-};
-
-const _showLoader = () => {
-    let loader = _getLoader();
-
-    if (loader) {
-        loader.style.display = 'initial';
-    }
-};
-
-const _hideLoader = () => {
-    let loader = _getLoader();
-
-    if (loader) {
-        loader.style.display = 'none';
-    }
-};
+import { hideLoader } from '../utils/loader';
 
 export default class WeatherHomePage extends React.PureComponent {
     componentDidMount() {
@@ -44,27 +18,19 @@ export default class WeatherHomePage extends React.PureComponent {
 
         if (!weatherInfo) {
             onSubmit({ location: searchTerm }, temperatureUnit );
-            removeInitialLoader();
-        }
-    }
-
-    componentDidUpdate() {
-        const { isLoading } = this.props;
-
-        if (isLoading) {
-            _showLoader();
-        } else {
-            _hideLoader();
+            hideLoader();
         }
     }
 
     render() {
         const {
+            isLoading,
             searchTerm,
             onChange,
             onSubmit,
             onHomePageLinkClick,
             onForecastLinkClick,
+            onUnitToggleChange,
             temperatureUnit,
             timezone,
             weatherInfo
@@ -74,6 +40,10 @@ export default class WeatherHomePage extends React.PureComponent {
         let windStatusCard;
         let loader;
 
+        if (isLoading) {
+            loader = (<div className="loader-wrapper"></div>);
+        }
+
         if (weatherInfo) {
             const {
                 astronomy,
@@ -82,12 +52,12 @@ export default class WeatherHomePage extends React.PureComponent {
                 units,
                 wind
             } = weatherInfo;
-            console.log('units passed in homepage', units.temperature);
+
             currentStatusCard = (
                 <CurrentStatusCard
                     atmosphere= { atmosphere }
                     condition={ item.condition }
-                    onUnitToggleChange={ onSubmit }
+                    onUnitToggleChange={ onUnitToggleChange }
                     searchTerm={ searchTerm }
                     units={ units }
                 />);
@@ -113,7 +83,6 @@ export default class WeatherHomePage extends React.PureComponent {
                     onForecastLinkClick={ onForecastLinkClick }
                 />
                 <div className="page-container">
-                    <div className="loader-wrapper"></div>
                     { loader }
                     { currentStatusCard }
                     { sunStatusCard }

@@ -11,7 +11,7 @@ import { sendLocationError } from '../utils/error';
 const _shouldUpdateApp = (searchTerm, lastUpdatedTime, temperatureUnit, weatherResults) => (
     (searchTerm !== getSearchTerm(weatherResults)) ||
     (lastUpdatedTime !== weatherResults.item.pubDate) ||
-    (temperatureUnit !== weatherResults.units.temperature.toLowerCase())
+    (temperatureUnit !== weatherResults.units.temperature)
 );
 
 export const SET_LOADING = 'SET_LOADING';
@@ -35,7 +35,7 @@ function _getLocationResults(weatherResults) {
 
             setTimeout(function() {
                 dispatch(setLoading(false));
-            }, 1000);
+            }, 500);
         }
 
         try {
@@ -62,8 +62,6 @@ export default function getWeatherData(searchTerm, unit) {
             if (weatherInfo) {
                 lastUpdatedTime = weatherInfo.item.pubDate;
             }
-
-            console.log('shouldupdate', _shouldUpdateApp(searchTerm, lastUpdatedTime, temperatureUnit, response));
 
             if (_shouldUpdateApp(searchTerm, lastUpdatedTime, temperatureUnit, response)) {
                 dispatch(_getLocationResults(response));

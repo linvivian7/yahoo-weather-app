@@ -3,17 +3,7 @@ import React from 'react';
 import Menu from '../components/menu';
 import ForecastCard from '../components/forecastCard';
 
-import { removeInitialLoader } from './WeatherHomePage';
-
-export default class ForecastPage extends React.Component {
-
-    componentDidMount() {
-        removeInitialLoader();
-    }
-
-    shouldComponentUpdate(nextProps) {
-        return nextProps.weatherInfo !== this.props.weatherInfo;
-    }
+export default class ForecastPage extends React.PureComponent {
 
     _getListItems(items, temperatureUnit) {
         return items.map((item, index) => (
@@ -39,7 +29,6 @@ export default class ForecastPage extends React.Component {
             temperatureUnit,
             weatherInfo
         } = this.props;
-
 
         return (
             <div>

@@ -50,7 +50,6 @@ const weatherInfo = (state = false, { type, payload }) => {
     let newState = state;
 
     if (type === SAVE_LOCATION_RESULTS) {
-        debugger;
         const weatherInfo = payload.weatherResults;
 
         const isMetric = getIsMetric(weatherInfo.units);
