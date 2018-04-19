@@ -5,15 +5,14 @@ import { Route, Router, createMemoryHistory } from 'react-router';
 import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
-import ConnectedWeatherHomePage from './containers/ConnectedWeatherHomePage';
-import ConnectedForecastPage from './containers/ConnectedForecastPage';
+import ConnectedWeatherHomePage from './containers/connectedWeatherHomePage';
+import ConnectedForecastPage from './containers/connectedForecastPage';
 
 import { BASE_URL, FORECAST_URL } from './constants';
 import reducer from './reducers';
 import configureStore from '../utils/configureStore';
 
-import './sass/weather-icons.min.scss';
-import './sass/weather-icons-wind.min.scss';
+import './assets/sass/weather-icons.min.scss';
 import './app.scss';
 import 'font-awesome/css/font-awesome.min.css';
 
