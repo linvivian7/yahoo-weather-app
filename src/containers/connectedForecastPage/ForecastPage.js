@@ -2,21 +2,22 @@ import React from 'react';
 
 import Menu from '../../components/menu';
 import ForecastCard from '../../components/forecastCard';
+import { getIsMetric } from '../../utils/measurement';
 
 import './forecastPage.scss';
 
 export default class ForecastPage extends React.PureComponent {
 
-    _getListItems(items, temperatureUnit) {
+    _getListItems(items, isMetric) {
         return items.map((item, index) => (
-            <ForecastCard key={ `forecast${item.date}` } item={ item } index={ index } temperatureUnit={ temperatureUnit } />
+            <ForecastCard key={ `forecast${item.date}` } item={ item } index={ index } isMetric={ isMetric } />
         ));
     }
 
-    _getForecastContainer(forecast, temperatureUnit) {
+    _getForecastContainer(forecast, isMetric) {
         return (
             <ul className="forecast-page-container">
-                { this._getListItems(forecast, temperatureUnit) }
+                { this._getListItems(forecast, isMetric) }
             </ul>
         );
     }
@@ -28,9 +29,9 @@ export default class ForecastPage extends React.PureComponent {
             onHomePageLinkClick,
             onForecastLinkClick,
             searchTerm,
-            temperatureUnit,
             weatherInfo
         } = this.props;
+        const isMetric = getIsMetric(weatherInfo.units);
 
         return (
             <div>
@@ -38,11 +39,10 @@ export default class ForecastPage extends React.PureComponent {
                     searchTerm={ searchTerm }
                     onChange= { onChange }
                     onSubmit= { onSubmit }
-                    temperatureUnit={ temperatureUnit }
                     onHomePageLinkClick={ onHomePageLinkClick }
                     onForecastLinkClick={ onForecastLinkClick }
                 />
-                { this._getForecastContainer(weatherInfo.item.forecast, temperatureUnit) }
+                { this._getForecastContainer(weatherInfo.item.forecast, isMetric) }
             </div>
         );
     }

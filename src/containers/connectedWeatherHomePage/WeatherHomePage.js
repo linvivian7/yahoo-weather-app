@@ -21,12 +21,11 @@ export default class WeatherHomePage extends React.PureComponent {
         const {
             onSubmit,
             searchTerm,
-            temperatureUnit,
             weatherInfo
         } = this.props;
 
         if (!weatherInfo) {
-            onSubmit({ location: searchTerm }, temperatureUnit );
+            onSubmit({ location: searchTerm });
         }
     }
 
@@ -42,7 +41,6 @@ export default class WeatherHomePage extends React.PureComponent {
             onHomePageLinkClick,
             onForecastLinkClick,
             onUnitToggleChange,
-            temperatureUnit,
             timezone,
             weatherInfo
         } = this.props;
@@ -85,7 +83,6 @@ export default class WeatherHomePage extends React.PureComponent {
                     searchTerm={ searchTerm }
                     onChange= { onChange }
                     onSubmit= { onSubmit }
-                    temperatureUnit={ temperatureUnit }
                     onHomePageLinkClick={ onHomePageLinkClick }
                     onForecastLinkClick={ onForecastLinkClick }
                 />

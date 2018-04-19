@@ -7,10 +7,9 @@ import getWeatherData from '../../actions';
 import { LOCATION_FORM_NAME } from '../../constants';
 import WeatherHomePage from './WeatherHomePage';
 
-const _mapStateToProps = ({ isLoading, searchTerm, timezone, temperatureUnit, weatherInfo }) => ({
+const _mapStateToProps = ({ isLoading, searchTerm, timezone, weatherInfo }) => ({
     searchTerm,
     timezone,
-    temperatureUnit,
     isLoading,
     weatherInfo
 });

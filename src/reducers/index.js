@@ -39,17 +39,6 @@ const timezone = (state = { timeZoneId: 'Asia/Tokyo' }, { type, payload }) => {
     return newState;
 };
 
-const temperatureUnit = (state = CELSIUS, { type, payload }) => {
-    let newState = state;
-
-    if (type === SAVE_LOCATION_RESULTS) {
-        const { units } = payload.weatherResults;
-
-        newState = units.temperature;
-    }
-    return newState;
-};
-
 const weatherInfo = (state = false, { type, payload }) => {
     let newState = state;
 
@@ -77,7 +66,6 @@ export default combineReducers({
     routing,
     isLoading,
     searchTerm,
-    temperatureUnit,
     timezone,
     weatherInfo
 });

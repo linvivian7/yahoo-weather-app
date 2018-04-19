@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import './forecastCard.scss';
 
-const ForecastCard = ({ item, index, temperatureUnit }) => {
+const ForecastCard = ({ item, index, isMetric }) => {
     const {
         code,
         date,
@@ -20,12 +20,11 @@ const ForecastCard = ({ item, index, temperatureUnit }) => {
         'wi',
         `wi-yahoo-${code}`
     );
-    const isFahrenheit = temperatureUnit === 'f';
     const temperatureIconClasses = classNames(
         'wi',
         {
-            'wi-celsius': !isFahrenheit,
-            'wi-fahrenheit': isFahrenheit
+            'wi-celsius': isMetric,
+            'wi-fahrenheit': !isMetric
         }
     );
 

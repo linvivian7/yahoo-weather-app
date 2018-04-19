@@ -50,12 +50,13 @@ export default function getWeatherData(searchTerm, unit) {
         function onSuccess(response) {
             const {
                 searchTerm,
-                temperatureUnit,
                 weatherInfo
             } = getState();
             let lastUpdatedTime;
+            let temperatureUnit;
 
             if (weatherInfo) {
+                temperatureUnit = weatherInfo.units.temperature;
                 lastUpdatedTime = weatherInfo.item.pubDate;
             }
 

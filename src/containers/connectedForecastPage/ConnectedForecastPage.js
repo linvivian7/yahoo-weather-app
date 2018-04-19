@@ -7,9 +7,8 @@ import getWeatherData from '../../actions';
 import { LOCATION_FORM_NAME } from '../../constants';
 import ForecastPage from './ForecastPage';
 
-const _mapStateToProps = ({ searchTerm, temperatureUnit, weatherInfo }) => ({
+const _mapStateToProps = ({ searchTerm, weatherInfo }) => ({
     searchTerm,
-    temperatureUnit,
     weatherInfo
 });
 
