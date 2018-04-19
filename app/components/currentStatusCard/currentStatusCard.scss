@@ -90,6 +90,10 @@
         @media (max-width: 360px) {
             grid-column: 1 / 4;
         }
+
+        @media (max-width: 230px) {
+            grid-column: 1 / 7;
+        }
     }
 
     .humidity-wrapper {
@@ -102,11 +106,14 @@
         i {
             color: $color-lagoon;
             font-size: 6vw;
-            margin-left: $margin-x-small;
         }
 
         @media (max-width: 360px) {
             grid-column: 4 / 7;
+        }
+
+        @media (max-width: 230px) {
+            display: none;
         }
     }
 
@@ -120,7 +127,6 @@
         i {
             color: $color-lagoon;
             font-size: 6vw;
-            margin-left: $margin-x-small;
         }
 
         @media (max-width: 360px) {
@@ -129,13 +135,19 @@
     }
 
     .unit-toggle-container {
+        height: 100%;
+        width: 100%;
+
         grid-row: 2;
         grid-column: 5 / 7;
 
         display: grid;
         grid-template: 100% / 30% 40% 30%;
-        height: 100%;
-        width: 100%;
+        align-items: center;
+
+        @media (min-width: $break-width) {
+            grid-row: 4;
+        }
 
         .unit-toggle-switch-wrapper {
             grid-row: 1;
@@ -148,16 +160,15 @@
         .unit-celsius-wrapper {
             grid-row: 1;
             grid-column: 1;
-            // grid-column: 4;
             justify-self: flex-end;
-            font-size: 5vh;
+            font-size: 5vmax;
         }
 
         .unit-fahrenheit-wrapper {
             grid-row: 1;
             grid-column: 3;
             justify-self: flex-start;
-            font-size: 5vh;
+            font-size: 5vmax;
         }
     }
 }

@@ -53,9 +53,10 @@ const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTe
                         <input
                             type="checkbox"
                             checked={ !isMetric }
+                            className="toggle-switch"
                             onChange={ onUnitToggleChange.bind(null, searchTerm, nextToggledTemperatureUnit) }
                         />
-                        <span className="slider round"></span>
+                        <span className="toggle-slider"></span>
                     </label>
                 </div>
                 <div className="unit-celsius-wrapper">
