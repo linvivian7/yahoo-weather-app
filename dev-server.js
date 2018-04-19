@@ -20,8 +20,8 @@ const devServerConfig = {
     disableHostCheck: true,
     overlay: true,
     before: (app) => {
-        app.use('/static-dj/js/node_modules/**', (req, res) => {
-            const modulesPath = req.baseUrl.replace(constants.DEV_ASSET_PATH, '');
+        app.use('/node_modules/**', (req, res) => {
+            const modulesPath = req.baseUrl.replace('/', '');
             const stream = fs.createReadStream(path.resolve(__dirname, '..', modulesPath));
 
             res.writeHead(200, {

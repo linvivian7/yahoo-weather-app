@@ -3,8 +3,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import Menu from '../../components/menu';
 import CurrentStatusCard from '../../components/currentStatusCard';
-import SunStatusCard from '../../components/SunStatusCard';
-import WindStatusCard from '../../components/WindStatusCard';
+import SunStatusCard from '../../components/sunStatusCard';
+import WindStatusCard from '../../components/windStatusCard';
 
 import './weatherHomePage.scss';
 

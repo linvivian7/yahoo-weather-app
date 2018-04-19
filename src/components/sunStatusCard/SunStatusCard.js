@@ -4,7 +4,7 @@ import moment from 'moment-timezone';
 import { getSunriseSunsetTime } from '../../utils/dateTime';
 import './sunStatusCard.scss';
 
-export default class SunStatusCard extends React.PureComponent {
+class SunStatusCard extends React.PureComponent {
 
     constructor(props) {
         super(props);
@@ -55,3 +55,5 @@ export default class SunStatusCard extends React.PureComponent {
         );
     }
 };
+
+export default SunStatusCard;

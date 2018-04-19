@@ -5,14 +5,19 @@ const babelPolyfill = require('babel-polyfill');
 
 module.exports = {
     devtool: 'eval-source-map',
-    entry: ['babel-polyfill', './app/index.js'],
+    entry: ['babel-polyfill', path.join(__dirname, './src/index.js')],
     output: {
-        path: '/',
+        path: path.join(__dirname, '/'),
         publicPath: '/',
         filename: 'bundle.js'
     },
     plugins: [
-        new Dotenv()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoErrorsPlugin(),
+        new Dotenv({
+          systemvars: true,
+          silent: true
+        })
     ],
     module:  {
         loaders: [
