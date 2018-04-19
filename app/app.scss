@@ -1,20 +1,4 @@
-@import './sass/constants.scss';
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-.fade-in {
-  opacity: 0;
-  animation: fadeIn .5s ease-in 1 forwards;
-}
-
-.is-paused {
-  animation-play-state: paused;
-}
-
+@import './constants.scss';
 
 body {
     font-family: $font-family-nav;
@@ -27,25 +11,4 @@ body {
     @media (min-width: $break-width) {
         padding: 90px 50px 0 50px;
     }
-}
-
-.page-container {
-    display: grid;
-    grid-template: 30% 3% 27.5% 3% 27.5% 1fr / 100%;
-    height: 95vh;
-
-    @media (min-width: $break-width) {
-        justify-content: stretch;
-        flex-direction: row;
-        height: 85vh;
-        grid-template: 35% 5% 60% / 62.5% 5% 32.5%;
-    }
-}
-
-ul.forecast-page-container {
-    display: grid;
-    padding-left: 0;
-    grid-template: 9% 1% 9% 1% 9% 1% 9% 1% 9% 1% 9% 1% 9% 1% 9% 1% 9% 1% 9% 1% / 100%;
-    height: 100vh;
-    margin: 0;
 }

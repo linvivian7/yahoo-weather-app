@@ -32,10 +32,6 @@ function _getLocationResults(weatherResults) {
     return async (dispatch) => {
         function onSuccess(timeZoneResults, weatherResults) {
             dispatch(_saveLocationResults({ weatherResults, timeZoneResults }));
-
-            setTimeout(function() {
-                dispatch(setLoading(false));
-            }, 500);
         }
 
         try {
@@ -64,8 +60,8 @@ export default function getWeatherData(searchTerm, unit) {
             }
 
             if (_shouldUpdateApp(searchTerm, lastUpdatedTime, temperatureUnit, response)) {
-                dispatch(_getLocationResults(response));
                 dispatch(setLoading(true));
+                dispatch(_getLocationResults(response));
             }
         }
 

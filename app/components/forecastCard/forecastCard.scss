@@ -1,4 +1,4 @@
-@import '../../sass/constants.scss';
+@import '../../constants.scss';
 
 @for $i from 0 through 9 {
     $rowstart: 1 + 2 * $i;

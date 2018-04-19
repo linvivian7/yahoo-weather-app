@@ -1,7 +1,7 @@
-@import '../../sass/constants.scss';
+@import '../../constants.scss';
 
 @mixin background-image($time) {
-    background: url('../../img/#{$time}.jpg');
+    background: url('../../assets/img/#{$time}.jpg');
     background-size: cover;
 }
 

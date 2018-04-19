@@ -1,4 +1,4 @@
-@import '../../sass/constants.scss';
+@import '../../constants.scss';
 @import './toggleSwitch.scss';
 
 .current-status-container {
@@ -161,14 +161,14 @@
             grid-row: 1;
             grid-column: 1;
             justify-self: flex-end;
-            font-size: 5vmax;
+            font-size: 6vmax;
         }
 
         .unit-fahrenheit-wrapper {
             grid-row: 1;
             grid-column: 3;
             justify-self: flex-start;
-            font-size: 5vmax;
+            font-size: 6vmax;
         }
     }
 }

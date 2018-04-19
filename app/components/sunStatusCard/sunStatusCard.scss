@@ -1,4 +1,4 @@
-@import '../../sass/constants.scss';
+@import '../../constants.scss';
 
 @mixin column-1-large-screen {
     @media (min-width: $break-width) {

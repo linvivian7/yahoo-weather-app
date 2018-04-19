@@ -8,11 +8,15 @@ import { getSearchTerm } from '../utils/query';
 import { getIsMetric } from '../utils/measurement';
 import { SAVE_LOCATION_RESULTS, SET_LOADING } from '../actions';
 
-const isLoading = (state = false, {type, payload}) => {
+const isLoading = (state = true, {type, payload}) => {
     let newState = state;
 
     if (type === SET_LOADING) {
         newState = payload;
+    }
+
+    if (type === SAVE_LOCATION_RESULTS) {
+        newState = false;
     }
     return newState;
 };
