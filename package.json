@@ -4,10 +4,10 @@
   "description": "Weather app for all your weather needs",
   "main": "index.js",
   "scripts": {
-    "build": "NODE_ENV=production webpack --display-error-details --config ./webpack.prod.config.js --progress --colors",
+    "build": "NODE_ENV=production webpack --display-error-details --config ./webpack.dev.config.js --progress --colors",
     "start": "node app.js",
     "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
-    "heroku-postbuild": "webpack -p --display-error-details --config ./webpack.prod.config.js --progress; export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;"
+    "heroku-postbuild": "webpack -p --display-error-details --config ./webpack.dev.config.js --progress; export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;"
   },
   "author": "linvivian7",
   "license": "ISC",

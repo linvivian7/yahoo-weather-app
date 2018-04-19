@@ -67,7 +67,14 @@ export default function getWeatherData(searchTerm, unit) {
         }
 
         try {
-            const weatherResults = await axios.get(getWeatherUrl(searchTerm, unit));
+            const { weatherInfo } = getState();
+            let preferredUnit = unit;
+
+            if (weatherInfo && !unit) {
+                preferredUnit = weatherInfo.units.temperature;
+            }
+
+            const weatherResults = await axios.get(getWeatherUrl(searchTerm, preferredUnit));
 
             return onSuccess(parseQueryResponse(weatherResults.data));
         } catch (error) {

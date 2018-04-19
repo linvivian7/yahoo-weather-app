@@ -10,7 +10,12 @@ class SunStatusCard extends React.PureComponent {
         super(props);
 
         const currentTime = moment();
-        const currentLocalTime = currentTime.tz(this.props.timezone.timeZoneId).format('h:mm A');
+        const { timeZoneId } = props.timezone;
+        let currentLocalTime = '';
+
+        if (currentTime && timeZoneId) {
+            currentLocalTime = currentTime.tz(timeZoneId).format('h:mm A');
+        }
 
         this.state = {
             currentLocalTime

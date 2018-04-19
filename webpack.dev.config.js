@@ -24,11 +24,11 @@ module.exports = {
             {
                 test: /\.js?$/,
                 exclude: /node_modules/,
-                loader: 'babel'
+                loader: 'babel-loader'
             },
             {
                 test: /\.(scss|css)$/,
-                loaders: ['style', 'css', 'sass']
+                loaders: ['style-loader', 'css-loader', 'sass-loader']
             },
             {
                 test: /\.(png|jpg|svg|gif)$/,
@@ -36,7 +36,7 @@ module.exports = {
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?.*$|$)/,
-                loader: 'file?name=public/fonts/[name].[ext]'
+                loader: 'file-loader?name=public/fonts/[name].[ext]'
             },
             {
                test: /\.json$/,

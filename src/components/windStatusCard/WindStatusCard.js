@@ -22,7 +22,29 @@ const WindStatusCard = ({ astronomy, timezone, units, wind }) => {
         speed
     } = wind;
     const currentTime = moment();
-    const currentLocalTime = currentTime.tz(timezone.timeZoneId);
+    const { timeZoneId } = timezone;
+    let currentLocalTime;
+    let currentHour;
+    let windContainerClasses= classNames(
+        'wind-status-container',
+    );
+
+    if (currentTime && timeZoneId) {
+         currentLocalTime= currentTime.tz(timeZoneId);
+         currentHour = currentLocalTime.hours();
+
+         const { day, afternoon, night } = getSunriseSunsetHours(astronomy);
+         
+         windContainerClasses= classNames(
+             'wind-status-container',
+             {
+                 'image-day': currentHour < afternoon && currentHour > day,
+                 'image-afternoon': currentHour >= afternoon && currentHour < night,
+                 'image-night': currentHour >= night || currentHour <= day
+             }
+         );
+    }
+
     const directionClasses = classNames(
         'wi',
         'wi-wind',
@@ -31,16 +53,6 @@ const WindStatusCard = ({ astronomy, timezone, units, wind }) => {
     const beaufortClasses = classNames(
         'wi',
         `wi-wind-beaufort-${ Math.round(beaufortWindScore.grade) }`
-    );
-    const { day, afternoon, night } = getSunriseSunsetHours(astronomy);
-    const currentHour = currentLocalTime.hours();
-    const windContainerClasses= classNames(
-        'wind-status-container',
-        {
-            'image-day': currentHour < afternoon && currentHour > day,
-            'image-afternoon': currentHour >= afternoon && currentHour < night,
-            'image-night': currentHour >= night || currentHour <= day
-        }
     );
 
     const [distanceUnit, timeUnit] = units.speed.split('/');
