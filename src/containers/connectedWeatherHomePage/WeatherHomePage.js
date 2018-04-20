@@ -105,7 +105,7 @@ export default class WeatherHomePage extends React.PureComponent {
                             <i aria-hidden={ true } className="fa fa-github" aria-hidden="true"></i>
                         </a>
                         <a aria-label="Yahoo weather link"  href={ YAHOO_WEATHER_LINK } target="_blank">
-                            <img src={ require('../../assets/img/yahoo-weather.gif') } alt="Yahoo Weather Link" />
+                            <img src={ require('../../assets/img/yahoo-weather.gif') } alt="Yahoo Weather Logo" />
                         </a>
                     </div>
                 </div>

@@ -46,16 +46,21 @@
         justify-content: space-between;
         align-items: center;
 
-            @media (min-width: $break-width) {
-                grid-row: 1;
-                grid-column: 3;
-            }
+        @media (min-width: $break-width) {
+            grid-row: 1;
+            grid-column: 3;
+
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+        }
 
         .github-link {
             font-size: 5vh;
 
             @media (min-width: $break-width) {
-                font-size: 13vh;
+                display: inherit;
+                font-size: 10vh;
             }
         }
     }
