@@ -2,46 +2,54 @@ const path = require('path');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
 const babelPolyfill = require('babel-polyfill');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    devtool: 'eval-source-map',
-    entry: ['babel-polyfill', path.join(__dirname, './src/index.js')],
+    devtool: 'inline-source-map',
     output: {
-        path: path.join(__dirname, '/'),
-        publicPath: '/',
-        filename: 'bundle.js'
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'dist'),
+      publicPath: '/dist/'
     },
+    optimization: {
+      minimize: false
+    },
+    entry: ['babel-polyfill', path.join(__dirname, './src/index.js')],
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new HtmlWebPackPlugin({
+            template: './index.html',
+            filename: './index.html'
+        }),
+        new webpack.NoEmitOnErrorsPlugin(),
         new Dotenv({
-          systemvars: true,
-          silent: true
+            systemvars: true,
+            silent: true
+        }),
+        new webpack.EnvironmentPlugin({
+            NODE_ENV: JSON.stringify('development'),
+            REACT_APP_TARGET: JSON.stringify('web')
         })
     ],
-    module:  {
-        loaders: [
+    module: {
+        rules: [
             {
                 test: /\.js?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
-            },
-            {
+            }, {
                 test: /\.(scss|css)$/,
                 loaders: ['style-loader', 'css-loader', 'sass-loader']
-            },
-            {
+            }, {
                 test: /\.(png|jpg|svg|gif)$/,
                 loader: 'file-loader'
-            },
-            {
+            }, {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?.*$|$)/,
                 loader: 'file-loader?name=public/fonts/[name].[ext]'
-            },
-            {
-               test: /\.json$/,
-               loader: 'json-loader'
-             }
+            }, {
+                test: /\.json$/,
+                exclude: /node_modules/,
+                loader: 'json-loader'
+            }
         ]
     }
 };

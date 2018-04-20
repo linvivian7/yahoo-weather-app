@@ -1,4 +1,6 @@
 /* eslint-disable import/unambiguous */
 module.exports = (
-    require('./configureStore.debug')
+    process.env.NODE_ENV === 'development'
+        ? require('./configureStore.debug')
+        : require('./configureStore.main')
 );

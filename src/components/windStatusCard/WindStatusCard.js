@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import moment from 'moment-timezone';
 import classNames from 'classnames';
 
 import { getSunriseSunsetHours } from '../../utils/dateTime';
@@ -34,7 +34,7 @@ const WindStatusCard = ({ astronomy, timezone, units, wind }) => {
          currentHour = currentLocalTime.hours();
 
          const { day, afternoon, night } = getSunriseSunsetHours(astronomy);
-         
+
          windContainerClasses= classNames(
              'wind-status-container',
              {
