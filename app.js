@@ -36,7 +36,7 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
     app.use('/', publicPath);
 
-    app.get('*', (req, res) => res.sendFile(HTML_FILE));
+    app.get('*', (req, res) => res.sendFile(indexPath));
 }
 
 app.listen(port);
