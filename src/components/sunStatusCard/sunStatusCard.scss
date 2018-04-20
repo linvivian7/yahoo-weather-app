@@ -87,6 +87,10 @@
         grid-column: 2;
 
         padding-left: $padding-small;
+
+        @media (min-width: $break-width) {
+            padding-right: $padding-small;
+        }
     }
 
     .sunset-text-wrapper {
