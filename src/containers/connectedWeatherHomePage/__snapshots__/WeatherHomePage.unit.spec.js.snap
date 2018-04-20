@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherHomePage snapshot 1`] = `
+<div>
+  <Menu
+    searchTerm="Taipei, Taiwan"
+  />
+  <div
+    className="page-container"
+  >
+    <CSSTransitionGroup
+      transitionAppear={false}
+      transitionEnter={true}
+      transitionEnterTimeout={1}
+      transitionLeave={true}
+      transitionLeaveTimeout={1000}
+      transitionName="loader"
+    />
+    <CurrentStatusCard
+      atmosphere={
+        Object {
+          "humidity": "74",
+          "pressure": "994.0",
+          "rising": "0",
+          "visibility": "16.1",
+        }
+      }
+      cityWeatherLink="https://weather.yahoo.com/country/state/city-2306179/"
+      condition={
+        Object {
+          "code": "27",
+          "date": "Fri, 20 Apr 2018 11:00 PM CST",
+          "temp": "75",
+          "text": "Mostly Cloudy",
+        }
+      }
+      searchTerm="Taipei, Taiwan"
+      units={
+        Object {
+          "distance": "mi",
+          "pressure": "in",
+          "speed": "mph",
+          "temperature": "F",
+        }
+      }
+    />
+    <SunStatusCard
+      astronomy={
+        Object {
+          "sunrise": "5:26 am",
+          "sunset": "6:19 pm",
+        }
+      }
+      timezone={
+        Object {
+          "timeZoneId": "America/Los_Angeles",
+          "timeZoneName": "Pacific Standard Time",
+        }
+      }
+    />
+    <WindStatusCard
+      astronomy={
+        Object {
+          "sunrise": "5:26 am",
+          "sunset": "6:19 pm",
+        }
+      }
+      timezone={
+        Object {
+          "timeZoneId": "America/Los_Angeles",
+          "timeZoneName": "Pacific Standard Time",
+        }
+      }
+      units={
+        Object {
+          "distance": "mi",
+          "pressure": "in",
+          "speed": "mph",
+          "temperature": "F",
+        }
+      }
+      wind={
+        Object {
+          "chill": "75",
+          "direction": "115",
+          "speed": "18",
+        }
+      }
+    />
+    <div
+      className="external-link-container"
+    >
+      <a
+        aria-label="Github link"
+        className="github-link"
+        href="https://github.com/linvivian7/yahoo-weather-app"
+        target="_blank"
+      >
+        <span
+          aria-hidden="true"
+          className="icon-github"
+        />
+      </a>
+      <a
+        aria-label="Yahoo weather link"
+        href="https://weather.yahoo.com/"
+        target="_blank"
+      >
+        <img
+          alt="Yahoo Weather Logo"
+          src={null}
+        />
+      </a>
+    </div>
+  </div>
+</div>
+`;

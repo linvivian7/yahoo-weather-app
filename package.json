@@ -1,5 +1,7 @@
 {
   "name": "react-redux-weather-app",
+  "author": "linvivian7",
+  "license": "MIT",
   "version": "1.0.0",
   "description": "Weather app for all your weather needs",
   "main": "./index.js",
@@ -11,10 +13,22 @@
     "build:production": "NODE_ENV=production webpack --mode=production --config ./webpack.prod.config.js",
     "serve:static": "node ./app.js",
     "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false; export NODE_ENV=; NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install --only=dev --dev",
-    "postinstall": "npm run build:production"
+    "postinstall": "npm run build:production",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
-  "author": "linvivian7",
-  "license": "MIT",
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|scss|svg|jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "identity-obj-proxy"
+    },
+    "setupFiles": [
+      "./src/test/jestsetup.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
   "dependencies": {
     "async": "^2.6.0",
     "axios": "^0.18.0",
@@ -25,6 +39,7 @@
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^8.2.3",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-dynamic-import-webpack": "^1.0.2",
@@ -40,11 +55,16 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.28.11",
     "dotenv-webpack": "^1.5.5",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
     "eslint": "^4.19.1",
     "eslint-plugin-react": "^7.7.0",
     "express": "^4.16.3",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.4.3",
     "json-loader": "^0.5.7",
     "mime-types": "^2.1.18",
     "node-sass": "^4.8.3",
@@ -57,6 +77,7 @@
     "react-router": "3.0.5",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^4.0.8",
+    "react-test-renderer": "^16.3.2",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
     "redux-form": "^7.3.0",

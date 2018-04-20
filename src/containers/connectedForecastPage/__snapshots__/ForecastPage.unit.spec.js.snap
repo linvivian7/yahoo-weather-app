@@ -1,0 +1,153 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForecastPage snapshot 1`] = `
+<div>
+  <Menu
+    searchTerm="Taipei, Taiwan"
+  />
+  <ul
+    className="forecast-page-container"
+  >
+    <ForecastCard
+      index={0}
+      isMetric={false}
+      item={
+        Object {
+          "code": "12",
+          "date": "21 Apr 2018",
+          "day": "Sat",
+          "high": "86",
+          "low": "71",
+        }
+      }
+      key="forecast21 Apr 2018"
+    />
+    <ForecastCard
+      index={1}
+      isMetric={false}
+      item={
+        Object {
+          "code": "4",
+          "date": "22 Apr 2018",
+          "day": "Sun",
+          "high": "88",
+          "low": "73",
+        }
+      }
+      key="forecast22 Apr 2018"
+    />
+    <ForecastCard
+      index={2}
+      isMetric={false}
+      item={
+        Object {
+          "code": "4",
+          "date": "23 Apr 2018",
+          "day": "Mon",
+          "high": "88",
+          "low": "73",
+        }
+      }
+      key="forecast23 Apr 2018"
+    />
+    <ForecastCard
+      index={3}
+      isMetric={false}
+      item={
+        Object {
+          "code": "47",
+          "date": "24 Apr 2018",
+          "day": "Tue",
+          "high": "81",
+          "low": "72",
+        }
+      }
+      key="forecast24 Apr 2018"
+    />
+    <ForecastCard
+      index={4}
+      isMetric={false}
+      item={
+        Object {
+          "code": "28",
+          "date": "25 Apr 2018",
+          "day": "Wed",
+          "high": "74",
+          "low": "68",
+        }
+      }
+      key="forecast25 Apr 2018"
+    />
+    <ForecastCard
+      index={5}
+      isMetric={false}
+      item={
+        Object {
+          "code": "30",
+          "date": "26 Apr 2018",
+          "day": "Thu",
+          "high": "79",
+          "low": "67",
+        }
+      }
+      key="forecast26 Apr 2018"
+    />
+    <ForecastCard
+      index={6}
+      isMetric={false}
+      item={
+        Object {
+          "code": "30",
+          "date": "27 Apr 2018",
+          "day": "Fri",
+          "high": "82",
+          "low": "69",
+        }
+      }
+      key="forecast27 Apr 2018"
+    />
+    <ForecastCard
+      index={7}
+      isMetric={false}
+      item={
+        Object {
+          "code": "34",
+          "date": "28 Apr 2018",
+          "day": "Sat",
+          "high": "83",
+          "low": "71",
+        }
+      }
+      key="forecast28 Apr 2018"
+    />
+    <ForecastCard
+      index={8}
+      isMetric={false}
+      item={
+        Object {
+          "code": "30",
+          "date": "29 Apr 2018",
+          "day": "Sun",
+          "high": "84",
+          "low": "72",
+        }
+      }
+      key="forecast29 Apr 2018"
+    />
+    <ForecastCard
+      index={9}
+      isMetric={false}
+      item={
+        Object {
+          "code": "30",
+          "date": "30 Apr 2018",
+          "day": "Mon",
+          "high": "86",
+          "low": "72",
+        }
+      }
+      key="forecast30 Apr 2018"
+    />
+  </ul>
+</div>
+`;
