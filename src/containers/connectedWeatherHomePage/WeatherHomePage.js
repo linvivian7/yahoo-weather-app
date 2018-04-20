@@ -102,7 +102,7 @@ export default class WeatherHomePage extends React.PureComponent {
                     { windStatusCard }
                     <div className="external-link-container">
                         <a aria-label="Github link" className="github-link" href={ GITHUB_LINK } target="_blank">
-                            <i aria-hidden={ true } className="fa fa-github" aria-hidden="true"></i>
+                            <span className="icon-github" aria-hidden="true"></span>
                         </a>
                         <a aria-label="Yahoo weather link"  href={ YAHOO_WEATHER_LINK } target="_blank">
                             <img src={ require('../../assets/img/yahoo-weather.gif') } alt="Yahoo Weather Logo" />

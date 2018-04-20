@@ -42,7 +42,7 @@ const LocationForm = (props) => {
                 onChange={ onChange }
             />
             <button type="submit" className={ submitButtonClasses } disabled={ disabled }>
-                <i aria-hidden="true" className="fa fas fa-search"></i>
+                <span className="icon-search" aria-hidden="true"></span>
             </button>
         </div>
     </form>);

@@ -13,8 +13,8 @@ import reducer from './reducers';
 import configureStore from '../utils/configureStore';
 
 import './assets/sass/weather-icons.min.scss';
+import './assets/sass/fontawesome.scss';
 import './app.scss';
-import 'font-awesome/css/font-awesome.min.css';
 
 export default class WeatherHomePage extends React.Component {
     constructor(props) {

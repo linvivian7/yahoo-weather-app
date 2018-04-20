@@ -47,7 +47,7 @@ const CurrentStatusCard = ({ atmosphere, cityWeatherLink, condition, onUnitToggl
                 <span> { `${atmosphere.humidity}` }<i className="wi wi-humidity"></i></span>
             </div>
             <div className="visibility-wrapper">
-                <span> { Math.round(atmosphere.visibility) }<i className="fa fas fa-eye"></i></span>
+                <span> { Math.round(atmosphere.visibility) }<span className="icon-eye" aria-hidden="true"></span></span>
             </div>
             <div className="unit-toggle-container">
                 <div className="unit-toggle-switch-wrapper">
