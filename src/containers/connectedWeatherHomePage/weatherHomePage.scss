@@ -9,7 +9,7 @@
         justify-content: stretch;
         flex-direction: row;
         height: 85vh;
-        grid-template: 35% 5% 60% / 62.5% 5% 32.5%;
+        grid-template: 35% 5% 60% / 75% 5% 20%;
     }
 
     .loader-wrapper {
@@ -38,5 +38,25 @@
     .loader-leave.loader-leave-active {
       opacity: 0.01;
       transition: opacity 1000ms ease-in;
+    }
+
+    .external-link-container {
+        grid-row: 6;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+            @media (min-width: $break-width) {
+                grid-row: 1;
+                grid-column: 3;
+            }
+
+        .github-link {
+            font-size: 5vh;
+
+            @media (min-width: $break-width) {
+                font-size: 13vh;
+            }
+        }
     }
 }

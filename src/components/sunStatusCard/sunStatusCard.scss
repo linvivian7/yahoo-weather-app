@@ -20,6 +20,11 @@
 
 @mixin sun-text-wrapper {
     font-size: $font-size-medium;
+
+    @media (min-width: $break-width) {
+        text-align: center;
+        font-size: 3vw;
+    }
 }
 
 @mixin sun-icon-wrapper {
@@ -29,17 +34,20 @@
 .sun-status-container {
     @include status-card
     grid-row: 3;
-    grid-template: 25% 50% 25% / 20% 60% 20%;
+    grid-template: 25% 50% 25% / 10% 80% 10%;
 
     background: $color-sea;
     background: -webkit-linear-gradient(160deg, $color-sea, $color-sunrise);
     background: linear-gradient(160deg, $color-sunrise, $color-sea);
+    padding: 1em;
 
     @media (min-width: $break-width) {
+        grid-row: 3;
         grid-column: 3;
         grid-template: 25% 50% 25% / 30% 70%;
 
         align-items: center;
+        padding: 0;
     }
 
     .current-time-wrapper {
@@ -47,7 +55,8 @@
         grid-row: 2;
         grid-column: 2;
 
-        font-size: 6vmax;
+        font-size: 5vmax;
+        text-align: center;
         justify-self: center;
     }
 

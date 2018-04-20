@@ -15,6 +15,7 @@
     @media (min-width: $break-width) {
         grid-row: 3;
         grid-column: 1;
+        padding: 2em 1em 1em 1em;
     }
 
     .weather-icon-wrapper {
@@ -31,27 +32,31 @@
         }
     }
 
-    .location-wrapper {
+    .yahoo-city-link {
+        text-decoration: none;
+        align-self: flex-end;
+        color: inherit;
+
         grid-row: 1;
         grid-column: 2 / 7;
-
-        max-width: 90%;
-        overflow: hidden;
-
         justify-self: flex-start;
-        align-self: flex-end;
+        max-width: 90%;
 
-        font-size: 5vw;
-        text-transform: uppercase;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+            @media (min-width: $break-width) {
+                grid-column: 3 / 7;
+            }
 
-        padding-left: $padding-small;
-        border-left: 1px solid white;
-        border-width: medium;
+        .location-wrapper {
+            overflow: hidden;
 
-        @media (min-width: $break-width) {
-            grid-column: 3 / 7;
+            font-size: 5vw;
+            text-transform: uppercase;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            padding-left: $padding-small;
+            border-left: 1px solid white;
+            border-width: medium;
         }
     }
 

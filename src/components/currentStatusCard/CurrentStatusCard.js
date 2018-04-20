@@ -7,7 +7,7 @@ import { CELSIUS, FAHRENHEIT } from '../../constants';
 
 import './currentStatusCard.scss';
 
-const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTerm, units }) => {
+const CurrentStatusCard = ({ atmosphere, cityWeatherLink, condition, onUnitToggleChange, searchTerm, units }) => {
     const {
         code,
         date,
@@ -30,11 +30,13 @@ const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTe
     return (
         <div className="current-status-container">
             <div className="weather-icon-wrapper">
-                <i className={ weatherIconClasses }></i>
+                <i className={ weatherIconClasses } aria-hidden={ true }></i>
             </div>
-            <div className="location-wrapper">
-                { searchTerm }
-            </div>
+            <a href={ cityWeatherLink } target="_blank" className="yahoo-city-link">
+                <div className="location-wrapper">
+                    { searchTerm }
+                </div>
+            </a>
             <div className="date-wrapper">
                 { getDisplayDateTime(date) }
             </div>
@@ -49,21 +51,21 @@ const CurrentStatusCard = ({ atmosphere, condition, onUnitToggleChange, searchTe
             </div>
             <div className="unit-toggle-container">
                 <div className="unit-toggle-switch-wrapper">
-                    <label className="switch">
+                    <label className="unit-switch">
                         <input
                             type="checkbox"
                             checked={ !isMetric }
-                            className="toggle-switch"
+                            className="unit-toggle-switch"
                             onChange={ onUnitToggleChange.bind(null, searchTerm, nextToggledTemperatureUnit) }
                         />
                         <span className="toggle-slider"></span>
                     </label>
                 </div>
                 <div className="unit-celsius-wrapper">
-                    <i className="wi wi-celsius"></i>
+                    <i className="wi wi-celsius" aria-label="celsius selector"></i>
                 </div>
                 <div className="unit-fahrenheit-wrapper">
-                    <i className="wi wi-fahrenheit"></i>
+                    <i className="wi wi-fahrenheit" aria-label="fahrenheit selector"></i>
                 </div>
             </div>
         </div>

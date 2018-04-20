@@ -13,7 +13,7 @@
     @media (min-width: $break-width) {
         grid-template: 70% 30% / 25% 50% 25%;
         grid-row: 1;
-        grid-column: 1 / 4;
+        grid-column: 1;
     }
 
     &.image-day {

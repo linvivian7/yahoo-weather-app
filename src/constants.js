@@ -2,6 +2,9 @@ export const BASE_URL = '/';
 export const FORECAST_URL = '/forecast';
 export const LOCATION_FORM_NAME = 'locationForm';
 
+export const YAHOO_WEATHER_LINK = 'https://weather.yahoo.com/';
+export const GITHUB_LINK = 'https://github.com/linvivian7/yahoo-weather-app';
+
 export const CELSIUS = 'C';
 export const FAHRENHEIT = 'F';
 

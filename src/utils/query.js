@@ -15,19 +15,23 @@ export const getTimezoneUrl = (latitude, longitude) => (
 );
 
 export const parseQueryResponse = ({query: { results }}) => {
-    let {
+    const {
         astronomy,
         atmosphere,
         item,
+        link,
         location,
         units,
         wind
     } = results.channel;
+    const cityWeatherLink = link.split('*')[1];
 
     return {
         astronomy,
         atmosphere,
+        cityWeatherLink,
         item,
+        link,
         units,
         location,
         wind

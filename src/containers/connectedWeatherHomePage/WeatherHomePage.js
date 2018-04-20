@@ -5,6 +5,7 @@ import Menu from '../../components/menu';
 import CurrentStatusCard from '../../components/currentStatusCard';
 import SunStatusCard from '../../components/sunStatusCard';
 import WindStatusCard from '../../components/windStatusCard';
+import { GITHUB_LINK, YAHOO_WEATHER_LINK } from '../../constants';
 
 import './weatherHomePage.scss';
 
@@ -54,13 +55,15 @@ export default class WeatherHomePage extends React.PureComponent {
                 astronomy,
                 atmosphere,
                 item,
+                cityWeatherLink,
                 units,
                 wind
             } = weatherInfo;
 
             currentStatusCard = (
                 <CurrentStatusCard
-                    atmosphere= { atmosphere }
+                    atmosphere={ atmosphere }
+                    cityWeatherLink={ cityWeatherLink }
                     condition={ item.condition }
                     onUnitToggleChange={ onUnitToggleChange }
                     searchTerm={ searchTerm }
@@ -81,8 +84,8 @@ export default class WeatherHomePage extends React.PureComponent {
             <div>
                 <Menu
                     searchTerm={ searchTerm }
-                    onChange= { onChange }
-                    onSubmit= { onSubmit }
+                    onChange={ onChange }
+                    onSubmit={ onSubmit }
                     onHomePageLinkClick={ onHomePageLinkClick }
                     onForecastLinkClick={ onForecastLinkClick }
                 />
@@ -97,6 +100,14 @@ export default class WeatherHomePage extends React.PureComponent {
                     { currentStatusCard }
                     { sunStatusCard }
                     { windStatusCard }
+                    <div className="external-link-container">
+                        <a aria-label="Github link" className="github-link" href={ GITHUB_LINK } target="_blank">
+                            <i aria-hidden={ true } className="fa fa-github" aria-hidden="true"></i>
+                        </a>
+                        <a aria-label="Yahoo weather link"  href={ YAHOO_WEATHER_LINK } target="_blank">
+                            <img src={ require('../../assets/img/yahoo-weather.gif') } alt="Yahoo Weather Link" />
+                        </a>
+                    </div>
                 </div>
             </div>
         );
