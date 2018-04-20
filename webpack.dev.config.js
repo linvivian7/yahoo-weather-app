@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const Dotenv = require('dotenv-webpack');
 const babelPolyfill = require('babel-polyfill');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -17,10 +16,6 @@ module.exports = {
     },
     entry: ['babel-polyfill', path.join(__dirname, './src/index.js')],
     plugins: [
-        new BundleAnalyzerPlugin({
-            analyzerHost: '0.0.0.0',
-            analyzerPort: 3000
-        }),
         new HtmlWebPackPlugin({
             template: './index.html',
             filename: './index.html'
