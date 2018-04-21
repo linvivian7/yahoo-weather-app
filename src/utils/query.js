@@ -1,5 +1,11 @@
 import { getCountryCode } from './country';
 
+export const shouldFetchNewQuery = (searchTerm, lastUpdatedTime, temperatureUnit, weatherResults) => (
+    (searchTerm !== getSearchTerm(weatherResults)) ||
+    (lastUpdatedTime !== weatherResults.item.pubDate) ||
+    (temperatureUnit !== weatherResults.units.temperature)
+);
+
 export const getWeatherUrl = (location, unit = 'c') => {
     const yahooWeatherUrl = 'https://query.yahooapis.com/v1/public/yql';
 

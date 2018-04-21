@@ -1,6 +1,36 @@
-Deployed: https://vlin-weather.herokuapp.com/
+**React-Redux Weather App**
+**https://vlin-weather.herokuapp.com/**
+===================
+### Easy-to-use site to search for current weather conditions and 10-day forecast.
 
-TODO:
-- Add Yahoo Attribution
-- Write unit tests
-- Detail functionalities on README
+![weather app demo](https://lh3.googleusercontent.com/Om6t10o0q8n95XjWDI9ubm1_6zJjGDaA7IdZxPZ-JmoJIJqtcyhrjDNcIrb1W-bsPSB538YvFo36-kK8zq5yot_lf4vm4Coub8K5VjrL2X-j8beEgW0b466HWsyNQHXnC3Kom3SK6t41VexzUHVFIX6SE1LLIcnksqj99HGUtRHm23ULyYEVuDRWD1In1Ouvf78KmbUtAtko6XUhezzZoc-R091VccdUR5PKpn8m2GLpT39Q1pecwNOZW9wBMhU6FWCh8bVaZ28Ech3YJ24sE8KPfl3IhSQMebgg5Jgvn-GnNlQ780CTEBsx5SQ-hRu9qfVCqTc5u10JMmgyK7lZX0z-6AuhxixeJHp0otTLY6WKWkvimuCvz9VsAuQdKwmKSm-z3LRxYwBAZFsWo2J8Ndzqy9-2o0plaOI8ULtJwLLcqKVW-PZ7Niuw000vMdkiBMTTDVjwOqcXsTN3QuxezYMT6UK9gO5TJeXs0G46BlLKjvMwGxviEdGzt4WDIlKa_8ctKwzClVT0clIfTTL8YkcfWeuQOB63EDEyJR9cD4KMg9DiUBDhndhwwxSpE-hqc3BwRuLXnMYtxJrLmMRdfbn-FBq_eYIE4EhxOFq4VFBoUoQQzKBgjEJnjFSVdgAx4Bv8FuawJ1XtPk9Q5c5wbgA56IHu61KXXg=w1187-h776-no)
+----------
+
+### Navigate
+
+[Weather Homepage](https://github.com/linvivian7/yahoo-weather-app#weather-homepage)
+
+[10-Day Forecast Page](https://github.com/linvivian7/yahoo-weather-app#10-day-forecast-page)
+
+Weather Homepage
+-------------
+Let's explore all the functionalities the homepage provides!
+
+#### Current Status
+Location | Date | Temperature | Humidity | Visibility
+![Current weather status](https://lh3.googleusercontent.com/1yv_S2IVPydYj1mEKUq08SKq037mLKGfZywoIBXx1q6P2ubClO6cApZCl-NJqHhbJFCVkioXsLK5A4F3Gcoss-QiqjfD9yP6tzj0lkwbfJctiufFXM-67n1P9_2ZoBeXvd07DjxyaZO5oBsHD8S3WT2zqHAb6GTSw5qgPtmU0TchYyB9csMbV8QG3QXLDNgITxCF1z0OjcpciqsWDhfIxzUdc0Y4yIqQ8NOZUb-RarliTwq7RWOoyeHp_eLW60NwsxwiQUpR3L8eCcNDD-C8kMh4GNWUkiS8BD7eACpEX2XIKlsgkIV0ZofKQxufV2kDHrUSUzYf6zeaJd91jj2LLPehIMxw0UucpcdW4mV0VBHkK42umc9gUE-TLp_Og2nzvExqC__06cIoLcPOE-MIpKl7J0oZcV4ggn1PCmY8p1P05AM9esOQKHGBwRbedaGfpKLcsKRuYMEmHAxBkSKn_fvMTJBvmmck5WNIT8oAxDc_CY_FPAMt6beKcxk8Mhlpwk4GVmWO4cUO3_SItxo7AZTUen5PXK2DTfTMLedQE_r9Vk43cEJJql_Opm10dEM9PPRYMnj48NBrHU7B28c9Zxo4wb9AvMfrAl5ZVAu_oBUja3Tfrd6lktDxx73d910JsQwWkOenSM7RNXwRH2BJRcR-eT6Zg4Egvg=w758-h439-no)
+
+> **Note:**
+Toggle between Metric and Imperial units by clicking/tapping on the  °C / °F slider
+
+#### Sun Status
+Current Time (Auto-Update) | Sunrise Time | Sunset Time
+![Current time and sunrise/sunset time](https://lh3.googleusercontent.com/XATWKiyT-f5lVlB_ru4N2IlC5s-CCbk21KMbDRruGR1PKvW-gGsLxjUIeIqG89zHRjwVjmu_z-H2yrBv_f1QY8CHWPwfTxbm_AbCmX4SAL6URCXAmLTcb3e_R0ak7B9ZyuAQsKpChGZk7GJKvHgnpOipP4TEpUr6iV2qXzq_6nsgNCtRBzhKOzmdslxXKJ-NZzHTnUqUm1WTmOLJD5A2MhmCksTSJBo2GcKHpVvvkWxxibhorzgxCUc2EmiDyKJb3pHzJTprUDDJGXDuBuIO2rj-j8wxNjN1hMLwh8eWsnIsmqWcEDi3IiZXbA06dkcdB_H_l5-eCkAp8OpfChneQGndvydsl8Q0oR5d9HwwMYwklt2OcvJOLjkXpqu0JjPR6mRbl0A9oV6DGyQVCslEhuoUyAhWo7PvHMm-BAD91oCz-5UlNVg70aXWIP6g5efGHF8b7kvnwUg4e4f2NO-FsN93PjTUokw2qTXLO5TpvqTVTNxljv-vxVvVTj-151ox6Userzaa6k-UYAii3YA3WAusCo9_HCkHCAfcD46l1gRok8P3SKtlqvgAemwhOs85w99tsziKU6Vwj12R3t24z0SLQF7ic8dfDNa76bKZ2SxQ6e52FTkpA08WmxinNxXUWjx4Bj9YQpQu4SNmUybjL4irEfxn5UIeVg=w758-h396-no)
+
+#### Wind Status
+Wind Direction | Description | Beaufort Score | Wind Speed
+![enter image description here](https://lh3.googleusercontent.com/03Rz8D2PjMhdKezQYGp3vrg6pKOeai1vkJPPGw3ks4TGjZCj1IlNu3TXhy8jphJwOjQ0CGB0XMJq776iuQiLCYbWuHvCy5nYxtiyDf1gSfZ3kdgDnyntU1_ukHBCLBHXdNlxyAa1fkgjNehy3PnZN8Fhrk2z6JhTiczRbHeNyk1mJVaVZ-DOT6X-6vqAtHitZTXqy5unRsr4psl3uzDofx6QtgLHnm_N13seB2aIeUVnvsVW_DDu41s-71I8zTKGdXZrqWmKUTRHVCcNqoNMFgvcU6-IN9hsQp0JxCv4v2UYM2KG_TY2GajGG5zKHfwnKYtPdyLdDFw1ZerzucoCjMF_9Yp01fUyJH2CloJcbnfOILCdb2Sigxr87bcdrpITxbBYOfn3Ifd--f5SLuC52XvaJux12ZZOq2oVLoQOwiHuw0MDKnOqyrY1HtKTq_J1p01_9ydu6tRLZBvCyoUPaJim8o7ge0yKi81evSnyHalGsYr3Wude-3t2psI2aMUJKYr2HjDqpHWa3cW8mTsCbU5XN313glT9LOrcTy7w5pYuqc7LuBPn6YvQVhjDWTNWht9Do_mHu6SgnJV8e2B5pbKolI_o4mpvwtpqPcNa0AG-UfIHcd9C5_Ny2PoAnaNjO3Bif6N3x1u4xXLd51YuRc6akiOpxFPDjA=w759-h402-no)
+
+10-Day Forecast Page
+-------------
+![Forecast page for the next 10 days](https://lh3.googleusercontent.com/H-QwoaoWSKz8-XBvPMyd4f7wTukrP8EWc3cECV36LtYIAbjkuRAgGF0rsYf8NTmVuxMrvnMWPp9dihLUEc00rxtCc9Sph-A0I-cGU6twaevAuquezCuYjX7VQd3zmJnFJpGnACgNIf3mqbgbylXjVdk8pxAhL4PWmRRxPj1w0g3fb0EMcO4sdsct17BTwiAWzP80Zqd-p6HXEpwP_22yjQUDZcvGnqtcVd1K14VMLwO_ZE-Lsisj39YidEVuAEIC2n6N7rv-MDgElYMJsGq9C-vnWvDcrUCjrnXOYs5aF21oJ447nFxNgXCeakve_D3NuH_t-f_cw_O_RJLs57F_dzzh_JxXjU99l-lKTOl3lVQHt8Y4ENE-nxhgLMDk4C33oredce6sWxVFcGLFaRSQEavp8d0O_l6-eqXqxCGylR7JpN1DjDwNkm9DdxdokYw_yVOrptg_r9V7juo26lhpxDLfJSURKb1C0IXTMzPzKNTnmv4zF-9RjSh_74mg1F0kARRQlWeiImifworXDOUuK6MM-dMp-DBl-Iafr09kBinZBCzfnWHrX36aFMCRulyaaM_nrwKz5PnOFidnaK_XjCJ9KomBORCJVz_iUMtyyZPlPdjCYRNKhLM1HfwzT5k2SjdqJidP0vp3IZK_7yM0TSDroo_SoOLy2A=w886-h1464-no)

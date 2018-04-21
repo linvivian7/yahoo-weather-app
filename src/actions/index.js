@@ -1,18 +1,12 @@
 import axios from 'axios';
 
 import {
-    getSearchTerm,
+    shouldFetchNewQuery,
     getTimezoneUrl,
     getWeatherUrl,
     parseQueryResponse
 } from '../utils/query';
 import { sendLocationError } from '../utils/error';
-
-const _shouldUpdateApp = (searchTerm, lastUpdatedTime, temperatureUnit, weatherResults) => (
-    (searchTerm !== getSearchTerm(weatherResults)) ||
-    (lastUpdatedTime !== weatherResults.item.pubDate) ||
-    (temperatureUnit !== weatherResults.units.temperature)
-);
 
 export const SET_LOADING = 'SET_LOADING';
 export const setLoading = (isLoading) => ({type: SET_LOADING, payload: isLoading});
@@ -60,7 +54,7 @@ export default function getWeatherData(searchTerm, unit) {
                 lastUpdatedTime = weatherInfo.item.pubDate;
             }
 
-            if (_shouldUpdateApp(searchTerm, lastUpdatedTime, temperatureUnit, response)) {
+            if (shouldFetchNewQuery(searchTerm, lastUpdatedTime, temperatureUnit, response)) {
                 dispatch(setLoading(true));
                 dispatch(_getLocationResults(response));
             }
