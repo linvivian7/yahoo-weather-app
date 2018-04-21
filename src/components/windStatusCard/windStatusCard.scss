@@ -9,6 +9,7 @@
     @include status-card
     grid-row: 5 / 6;
     grid-template: 42% 58% / 25% 50% 25%;
+    text-transform: uppercase;
 
     @media (min-width: $break-width) {
         grid-template: 70% 30% / 25% 50% 25%;
@@ -36,7 +37,7 @@
         font-size: 8vmax;
 
         span {
-            font-size: $font-size-med-large;
+            font-size: 6vmax;
         }
 
         @media (min-width: $break-width) {

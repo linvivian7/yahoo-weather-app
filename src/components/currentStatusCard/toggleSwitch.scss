@@ -16,9 +16,9 @@
                 }
 
                 + .toggle-slider:before {
-                    -webkit-transform: translateX(2vmax);
-                    -ms-transform: translateX(2vmax);
-                    transform: translateX(2vmax);
+                    -webkit-transform: translateX(2.2vmax);
+                    -ms-transform: translateX(2.2vmax);
+                    transform: translateX(2.2vmax);
                 }
             }
 
@@ -31,9 +31,9 @@
             border-radius: 2vmax;
             position: absolute;
             cursor: pointer;
-            top: 0;
+            top: 0.2vmax;
             left: 0;
-            right: 0;
+            right: 0.2vmax;
             bottom: 0;
             -webkit-transition: 0.4s;
             transition: 0.4s;
@@ -42,8 +42,8 @@
             &:before {
                 position: absolute;
                 content: "";
-                height: 2vmax;
-                width: 2vmax;
+                height: 1.8vmax;
+                width: 1.8vmax;
                 left: 0;
                 bottom: 0;
                 background-color: white;

@@ -5,6 +5,9 @@
   "version": "1.0.0",
   "description": "Weather app for all your weather needs",
   "main": "./index.js",
+  "engines": {
+      "node": "9.3.0"
+  },
   "scripts": {
     "start": "NODE_ENV=production npm run serve:static",
     "start:dev": "NODE_ENV=development npm-run-all --serial build serve:static",
