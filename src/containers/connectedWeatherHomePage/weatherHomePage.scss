@@ -57,6 +57,7 @@
 
         .github-link {
             font-size: 5vh;
+            color: $color-grey;
 
             @media (min-width: $break-width) {
                 display: inherit;
